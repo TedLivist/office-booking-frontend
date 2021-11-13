@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
