@@ -1,6 +1,5 @@
 .item-card {
  width: 30%;
- display: flex;
  align-items: center;
  padding: 2rem 2rem;
 }
@@ -9,4 +8,32 @@
   width: 15rem;
   height: 15rem;
   border-radius: 100%;
+}
+
+.item-name {
+ color: #151515;
+ font-weight: bold;
+}
+
+.item-description {
+ color: #d8d8d9;
+ border-top-style: dashed;
+ padding-top: 0.5rem;
+}
+
+.item-services {
+ list-style: none;
+ flex-direction: row;
+ justify-content: space-around;
+ padding: 0 0;
+} 
+
+.item-services li {
+  border-radius: 100%;
+  border-style: solid;
+  color: #d8d8d9;
+  border-width: 1px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.1rem 0.1rem;
 }
