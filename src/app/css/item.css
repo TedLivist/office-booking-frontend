@@ -1,0 +1,12 @@
+.item-card {
+ width: 30%;
+ display: flex;
+ align-items: center;
+ padding: 2rem 2rem;
+}
+
+.item-img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 100%;
+}
