@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
+import { TiSocialTwitterCircular, TiSocialInstagramCircular, TiSocialFacebookCircular } from 'react-icons/ti';
 import '../css/item.css';
 
 const Item = ({ item }) => {
   const page = `/details/${item.id}`;
-  const services = item.services.map((service) => (<li key={service}>{ service }</li>));
   return (
     <a className="w-50 text-decoration-none link-dark text-center text-dark" href={page}>
       <Card className="item-card border-0">
@@ -17,8 +17,10 @@ const Item = ({ item }) => {
           <Card.Text className="item-description">
             {item.description}
           </Card.Text>
-          <ul className="item-services d-flex">
-            {services}
+          <ul className="item-icons d-flex">
+            <li><TiSocialFacebookCircular /></li>
+            <li><TiSocialTwitterCircular /></li>
+            <li><TiSocialInstagramCircular /></li>
           </ul>
         </Card.Body>
       </Card>
@@ -32,7 +34,6 @@ Item.propTypes = {
     name: PropTypes.string,
     img: PropTypes.string,
     description: PropTypes.string,
-    services: PropTypes.arrayOf(string),
   }),
 };
 
@@ -40,9 +41,8 @@ Item.defaultProps = {
   item: {
     id: 'office1',
     name: 'office1',
-    img: 'https://user-images.githubusercontent.com/43698511/141481667-1e961fd1-d3ca-43a5-86ba-8b3d48be7c11.png',
-    description: 'Nice looking office',
-    services: ['wi-fi', 'ac'],
+    img: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/list.png?token=AKNMSTZGJXXSWHX2Y33UV2DBTD27C',
+    description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
   },
 };
 

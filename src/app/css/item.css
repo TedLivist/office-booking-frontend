@@ -21,19 +21,14 @@
  padding-top: 0.5rem;
 }
 
-.item-services {
+.item-icons {
  list-style: none;
  flex-direction: row;
  justify-content: space-around;
  padding: 0 0;
 } 
 
-.item-services li {
-  border-radius: 100%;
-  border-style: solid;
+.item-icons li {
   color: #d8d8d9;
-  border-width: 1px;
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0.1rem 0.1rem;
+  font-size: 30px;
 }
