@@ -8,13 +8,13 @@ import '../css/reserve.css';
 const Reservex = ({ items, user }) => {
   const [item, setItem] = useState({});
 
-  const options = items.map((item) => (<option key={item.id} value={item.id}>{item.name}</option>));
+  const options = items.map((item) => (<option key={item.id} value={items.indexOf(item)}>{item.name}</option>));
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(`The item you chose: ${item.name} ${item.location} `);
   };
   const handleChange = (value) => {
-    setItem(items.filter((item) => item.id === value)[0]);
+    setItem(items[value]);
     console.log(item);
   };
   return (
@@ -35,14 +35,14 @@ const Reservex = ({ items, user }) => {
           Book this office
         </h1>
         <p className="reserve-description">Choose an office and make a reservation</p>
-        <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column flex-lg-row justify-content-around">
-          <Form.Group className="mb-3 w-lg-25" controlId="formBasicEmail">
-            <Form.Control as="select" className="reserve-input" onChange={(e) => handleChange(e.target.value)}>
-              <option value={items[0].id}>Select office</option>
+        <Form onSubmit={handleSubmit} className="w-75 d-flex flex-column flex-lg-row justify-content-around">
+          <Form.Group className="mb-3 " controlId="formBasicEmail">
+            <Form.Control as="select" className="reserve-input px-lg-5" onChange={(e) => handleChange(e.target.value)}>
+              <option value="0">Select office</option>
               {options}
             </Form.Control>
           </Form.Group>
-          <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
+          <Form.Group className="mb-3 w-lg-25 " controlId="formBasicPassword">
             <Form.Control className="reserve-input" type="text" value={item.location} />
           </Form.Group>
           <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
