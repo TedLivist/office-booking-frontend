@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
+import { VscSearch } from 'react-icons/vsc';
 import '../css/reserve.css';
 
 const Reserve = ({ item, user }) => (
@@ -11,9 +12,12 @@ const Reserve = ({ item, user }) => (
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
     }}
-    className="bg-reserve"
+    className="bg-reserve d-flex flex-column"
   >
-    <div className="d-flex flex-column align-items-center">
+    <span className="search-icon">
+      <VscSearch />
+    </span>
+    <div className="div-reserve d-flex flex-column align-items-center">
       <h1 className="reserve-title">
         Book this office
       </h1>

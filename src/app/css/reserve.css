@@ -1,7 +1,20 @@
 .bg-reserve {
-  padding: 15% 10%;
+  padding: 1% 5%;
+  height: 100%;
 }
-
+.div-reserve {
+ margin-top: 15%;
+ margin-bottom: 15%;
+}
+.search-icon {
+ color: #96bf0298;
+ font-size: 20px;
+ border-color: white;
+ background-color: white;
+ padding:0 15px 3px 15px;
+ border-radius: 500px;
+ align-self: flex-end;
+}
 .reserve-title {
  color: #fdfdf3;
 }
