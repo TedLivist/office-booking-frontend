@@ -11,27 +11,28 @@ const Reserve = ({ item, user }) => (
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
     }}
-    className="bg-reserve d-flex flex-column align-items-center"
+    className="bg-reserve"
   >
-    <h1 className="reserve-title">
-      {user.username}
-      Book this office
-    </h1>
-    <p className="reserve-description">{item.description}</p>
-    <Form className="w-50 d-flex justify-content-around">
-      <Form.Group className="mb-3 w-25" controlId="formBasicEmail">
-        <Form.Control className="reserve-input" type="text" value={item.name} />
-      </Form.Group>
-      <Form.Group className="mb-3 w-25" controlId="formBasicPassword">
-        <Form.Control className="reserve-input" type="text" value={item.location} />
-      </Form.Group>
-      <Form.Group className="mb-3 w-25" controlId="formBasicPassword">
-        <Form.Control className="reserve-input" type="text" value={user.username} />
-      </Form.Group>
-      <Button className="mb-3 reserve-button" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <div className="d-flex flex-column align-items-center">
+      <h1 className="reserve-title">
+        Book this office
+      </h1>
+      <p className="reserve-description">{item.description}</p>
+      <Form className="w-50 d-flex flex-column flex-lg-row justify-content-around">
+        <Form.Group className="mb-3 w-lg-25" controlId="formBasicEmail">
+          <Form.Control className="reserve-input" type="text" value={item.name} />
+        </Form.Group>
+        <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
+          <Form.Control className="reserve-input" type="text" value={item.location} />
+        </Form.Group>
+        <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
+          <Form.Control className="reserve-input" type="text" value={user.username} />
+        </Form.Group>
+        <Button className="mb-3 reserve-button" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </div>
   </section>
 );
 
@@ -53,7 +54,7 @@ Reserve.defaultProps = {
   item: {
     id: 'office1',
     name: 'office1',
-    img: '',
+    img: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/list.png?token=AKNMSTZGJXXSWHX2Y33UV2DBTD27C',
     location: 'Rabat',
     description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
   },
