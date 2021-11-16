@@ -44,3 +44,42 @@
   background-color: #96bf0298;  
   border-color: white;
 }
+
+.react-datetime-picker__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+      border-top-color: rgb(206, 212, 218);
+      border-right-color: rgb(206, 212, 218);
+      border-bottom-color: rgb(206, 212, 218);
+      border-left-color: rgb(206, 212, 218);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  flex-shrink: 0;
+  background-color: #96bf0298;
+  border-color: white;
+  color: #fdfdf3;
+  border-radius: 500px;
+}
+
+.react-datetime-picker__inputGroup__input {
+  color: white;
+}
+
+@media only screen and (min-width: 992px) {
+  .w-lg-60 {
+    width: 60%;
+  }
+}
