@@ -1,5 +1,5 @@
 .item-card {
- width: 30%;
+ width: 25%;
  align-items: center;
  padding: 2rem 2rem;
 }
@@ -17,8 +17,16 @@
 
 .item-description {
  color: #d8d8d9;
- border-top-style: dashed;
- padding-top: 0.5rem;
+
+}
+
+.item-description::before {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+  padding-top: 0.5rem; 
+  border-top: 2px dashed #d8d8d9;
 }
 
 .item-icons {
