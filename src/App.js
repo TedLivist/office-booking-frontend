@@ -1,9 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
 import DeleteListItems from './components/DeleteListItems';
+import Item from './components/Item';
 
 function App() {
   return (
-    <DeleteListItems />
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Item />} />
+        <Route path ="/deleteList" element={<DeleteListItems />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
