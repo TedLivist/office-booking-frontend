@@ -1,19 +1,33 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { VscSearch } from 'react-icons/vsc';
 import DateTimePicker from 'react-datetime-picker';
+import { getAllItems } from '../redux/items/items';
 import '../css/reserve.css';
 
 const Reserve = ({
-  item, items, user, details,
+  item, user, details,
 }) => {
   const [itm, setItem] = useState({});
   const [start, setStart] = useState(new Date());
   const [end, setEnd] = useState(new Date());
   const [validated, setValidated] = useState(false);
-  const options = items.map((item) => (<option key={item.id} value={items.indexOf(item)}>{item.name}</option>));
+  const items = useSelector((state) => state.items.items);
+  const dispatch = useDispatch();
+  let options = [];
+
+  useEffect(() => {
+    if (!details) {
+      dispatch(getAllItems());
+    }
+  }, []);
+
+  if (items) {
+    options = items.map((item) => (<option key={item.id} value={items.indexOf(item)}>{item.name}</option>));
+  }
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -36,7 +50,7 @@ const Reserve = ({
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(#96bf0298, #96bf0298),url(${itm.img})`,
+        backgroundImage: `linear-gradient(#96bf0298, #96bf0298),url(${details ? item.img : itm.img})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -102,13 +116,6 @@ const Reserve = ({
 };
 
 Reserve.propTypes = {
-  items: PropTypes.arrayOf({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    img: PropTypes.string,
-    location: PropTypes.string,
-    description: PropTypes.string,
-  }),
   item: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -124,20 +131,6 @@ Reserve.propTypes = {
 };
 
 Reserve.defaultProps = {
-  items: [{
-    id: 1,
-    name: 'office1',
-    img: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/list.png?token=AKNMSTZGJXXSWHX2Y33UV2DBTD27C',
-    location: 'Rabat',
-    description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
-  },
-  {
-    id: 2,
-    name: 'office2',
-    img: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/details.png?token=AKNMSTYILDDE5PZBY4KCICDBTJTNE',
-    location: 'casablanca',
-    description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
-  }],
   item: {
     id: 1,
     name: 'office1',
