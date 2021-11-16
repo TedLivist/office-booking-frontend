@@ -1,6 +1,6 @@
 import React from 'react';
-import Carr from './features/Carr';
-import './App.css';
+import Carr from './app/components/Carr'
+import './app/css/carr.css';
 
 function App() {
   return (
