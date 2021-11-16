@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Item = (props) => {
+const DeleteListItem = (props) => {
   
   const { id, name, location, description } = props
 
@@ -15,4 +15,4 @@ const Item = (props) => {
   );
 }
  
-export default Item;
+export default DeleteListItem;

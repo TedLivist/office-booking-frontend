@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchItems } from '../helpers/fetchItems';
-import Item from './Item';
+import Item from './DeleteListItem';
 
-const Items = () => {
+const DeleteListItems = () => {
 
   const [state, setState] = useState([])
 
@@ -30,4 +30,4 @@ const Items = () => {
   );
 }
  
-export default Items;
+export default DeleteListItems;
