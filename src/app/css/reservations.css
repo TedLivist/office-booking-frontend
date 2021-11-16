@@ -1,3 +1,8 @@
+.reservation {
+  width: 80%;
+  margin: auto;
+}
+
 .res-header {
   text-align: center;
 }
