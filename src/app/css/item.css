@@ -1,7 +1,7 @@
 .item-card {
- width: 25%;
- align-items: center;
- padding: 2rem 2rem;
+  width: 25%;
+  align-items: center;
+  padding: 2rem 2rem;
 }
 
 .item-img {
@@ -11,13 +11,12 @@
 }
 
 .item-name {
- color: #151515;
- font-weight: bold;
+  color: #151515;
+  font-weight: bold;
 }
 
 .item-description {
- color: #d8d8d9;
-
+  color: #d8d8d9;
 }
 
 .item-description::before {
@@ -25,16 +24,16 @@
   display: block;
   margin: 0 auto;
   width: 30%;
-  padding-top: 0.5rem; 
+  padding-top: 0.5rem;
   border-top: 2px dashed #d8d8d9;
 }
 
 .item-icons {
- list-style: none;
- flex-direction: row;
- justify-content: space-around;
- padding: 0 0;
-} 
+  list-style: none;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 0;
+}
 
 .item-icons li {
   color: #d8d8d9;

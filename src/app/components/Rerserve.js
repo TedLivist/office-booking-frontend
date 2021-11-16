@@ -12,13 +12,21 @@ const Reserve = ({
   const [itm, setItem] = useState({});
   const [start, setStart] = useState(new Date());
   const [end, setEnd] = useState(new Date());
+  const [validated, setValidated] = useState(false);
   const options = items.map((item) => (<option key={item.id} value={items.indexOf(item)}>{item.name}</option>));
 
   const handleSubmit = async (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
     event.preventDefault();
+    setValidated(true);
     if (details) {
       setItem(item);
     }
+    console.log(`Form data: ${itm.id} ${user.id} ${start} ${end}`);
   };
 
   const handleSelect = (value) => {
@@ -43,43 +51,45 @@ const Reserve = ({
           Book this office
         </h1>
         <p className="reserve-description">{item.description}</p>
-        <Form onSubmit={handleSubmit} className="w-lg-60 d-flex flex-column justify-content-around">
+        <Form noValidate validated={validated} onSubmit={handleSubmit} className="w-lg-60 d-flex flex-column justify-content-around">
           <div className="d-flex flex-column flex-lg-row justify-content-around">
             {details ? (
               <>
                 <Form.Group className="mb-3 w-lg-25" controlId="formBasicEmail">
-                  <Form.Control className="reserve-input" type="text" value={item.name} />
+                  <Form.Control className="reserve-input" type="text" value={item.name} readOnly />
                 </Form.Group>
                 <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-                  <Form.Control className="reserve-input" type="text" value={item.location} />
+                  <Form.Control className="reserve-input" type="text" value={item.location} readOnly />
                 </Form.Group>
               </>
             ) : (
               <>
                 <Form.Group className="mb-3 " controlId="formBasicEmail">
-                  <Form.Control as="select" className="reserve-input px-lg-5" onChange={(e) => handleSelect(e.target.value)}>
-                    <option value="0">Select office</option>
+                  <Form.Control as="select" className="reserve-input px-lg-5" onChange={(e) => handleSelect(e.target.value)} required>
+                    <option value="" disabled selected>Select office</option>
                     {options}
                   </Form.Control>
+                  <Form.Control.Feedback type="invalid">
+                    Please select an office.
+                  </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-                  <Form.Control className="reserve-input" type="text" value={itm.location} />
+                  <Form.Control className="reserve-input" type="text" value={itm.location} required />
                 </Form.Group>
               </>
             )}
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-              <Form.Control className="reserve-input" type="text" value={user.username} />
+              <Form.Control className="reserve-input" type="text" value={user.username} readOnly required />
             </Form.Group>
           </div>
           <div className="d-flex flex-column flex-lg-row justify-content-around">
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-              <DateTimePicker className="reserve-input" onChange={setStart} value={start} />
+              <Form.Label className="reserve-label">From:</Form.Label>
+              <DateTimePicker className="reserve-input" onChange={setStart} minDate={start} amPmAriaLabel="Select AM/PM" maxDate={end} value={start} disableClock required />
             </Form.Group>
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-              <DateTimePicker className="reserve-input" onChange={setEnd} value={end} />
-              <Form.Control.Feedback type="invalid">
-                Please provide a valid city.
-              </Form.Control.Feedback>
+              <Form.Label className="reserve-label">To:</Form.Label>
+              <DateTimePicker className="reserve-input" onChange={setEnd} value={end} minDate={start} disableClock required />
             </Form.Group>
           </div>
           <Button className="w-lg-25 mb-3 reserve-button align-self-center" type="submit">
@@ -110,7 +120,7 @@ Reserve.propTypes = {
     id: PropTypes.string,
     username: PropTypes.string,
   }),
-  details: PropTypes.bool.isRequired,
+  details: PropTypes.bool,
 };
 
 Reserve.defaultProps = {
@@ -139,6 +149,7 @@ Reserve.defaultProps = {
     id: '0',
     username: 'username',
   },
+  details: false,
 };
 
 export default Reserve;

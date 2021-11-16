@@ -78,6 +78,17 @@
   color: white;
 }
 
+.form-control:disabled, .form-control[readonly] {
+  background-color: #96bf0298;
+  opacity: 1;
+}
+
+.reserve-label {
+  color: #fdfdf3;
+  padding-right: 2rem;
+  font-size: 20px;
+}
+
 @media only screen and (min-width: 992px) {
   .w-lg-60 {
     width: 60%;
