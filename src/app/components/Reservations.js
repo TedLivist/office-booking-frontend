@@ -1,5 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
+// import { getReservations } from '../redux/reservations/reservations';
+
+
+  const dispatch = useDispatch();
+  const reservations = useSelector((state) => state.reservations.reservations);
+
+  useEffect(() => {
+    if (reservations.length > 0) {
+      return;
+    }
+    dispatch(getReservations());
+  }, []);
+
 
 function Reservations() {
 
@@ -14,7 +28,7 @@ const reservations = [
       name: 'Beacon F5r8',
       sdate: '11/13/21',
       edate: '11/13/21',
-      city: 'Nairobi'
+      city: 'Mombasa'
     },
     {
       name: 'Comine F5r8',
