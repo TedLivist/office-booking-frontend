@@ -14,7 +14,8 @@ const DeleteListItems = () => {
 
   return (
     <div>
-      <table className="table table-striped">
+      <h1 className="text-center mb-2">List of Items</h1>
+      <table className="table table-striped mt-2">
         <thead>
           <tr>
             <th scope="col">ID</th>

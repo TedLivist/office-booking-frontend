@@ -1,4 +1,5 @@
 import React from 'react';
+import DeleteButton from './DeleteButton';
 
 const DeleteListItem = (props) => {
   
@@ -10,7 +11,7 @@ const DeleteListItem = (props) => {
       <td>{name}</td>
       <td>{location}</td>
       <td>{description}</td>
-      <td>Delete Action</td>
+      <td><DeleteButton /></td>
     </>
   );
 }
