@@ -5,13 +5,13 @@ const DeleteListItem = (props) => {
   const { id, name, location, description } = props
 
   return (
-    <div>
-      <span>{id}</span> - <span>{name}</span>
-      <p></p>
-      <span>{location}</span> - <span>{description}</span>
-      <p></p>
-      <hr />
-    </div>
+    <>
+      <th scope="row">{id}</th>
+      <td>{name}</td>
+      <td>{location}</td>
+      <td>{description}</td>
+      <td>Delete Action</td>
+    </>
   );
 }
  
