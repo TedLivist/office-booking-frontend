@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { fetchItems } from '../helpers/fetchItems';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllItems } from '../redux/items/items';
 import DeleteListItem from './DeleteListItem';
 
 const DeleteListItems = () => {
+  const dispatch = useDispatch();
 
-  const [state, setState] = useState([])
+  useEffect(() => {
+    dispatch(getAllItems());
+  }, [dispatch]);
 
-  useEffect(async () => {
-    const data = await fetchItems()
-    console.log(data)
-    setState(data)
-  }, [])
+  const state = useSelector((state) => state.items.items);
 
   return (
     <div>
@@ -26,19 +26,20 @@ const DeleteListItems = () => {
           </tr>
         </thead>
         <tbody>
-          {state.map((item) => (
+          {state && state.map((item) => (
             <tr key={item.id}>
               <DeleteListItem
                 id={item.id}
                 name={item.name}
                 description={item.description}
-                location={item.location} />
+                location={item.location}
+              />
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-}
- 
+};
+
 export default DeleteListItems;

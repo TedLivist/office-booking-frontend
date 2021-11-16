@@ -1,9 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DeleteButton from './DeleteButton';
 
 const DeleteListItem = (props) => {
-  
-  const { id, name, location, description } = props
+  const {
+    id,
+    name,
+    location,
+    description,
+  } = props;
 
   return (
     <>
@@ -14,6 +19,13 @@ const DeleteListItem = (props) => {
       <td><DeleteButton /></td>
     </>
   );
-}
- 
+};
+
+DeleteListItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
+
 export default DeleteListItem;
