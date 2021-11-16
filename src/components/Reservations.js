@@ -1,43 +1,40 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
-// import { getReservations } from '../redux/reservations/reservations';
+import { getReservations } from '../redux/reservations/reservations';
 
+
+function Reservations() {
 
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
 
   useEffect(() => {
-    if (reservations.length > 0) {
-      return;
-    }
-    dispatch(getReservations());
-  }, []);
+    dispatch(getReservations('Peter'));
+  }, [dispatch]);
 
 
-function Reservations() {
+// const reservations = [
+//     {
+//       name: 'Acacia F5r8',
+//       sdate: '11/13/21',
+//       edate: '11/13/21',
+//       city: 'Nairobi'
+//     },
+//     {
+//       name: 'Beacon F5r8',
+//       sdate: '11/13/21',
+//       edate: '11/13/21',
+//       city: 'Mombasa'
+//     },
+//     {
+//       name: 'Comine F5r8',
+//       sdate: '11/13/21',
+//       edate: '11/13/21',
+//       city: 'Nairobi'
+//     }
 
-const reservations = [
-    {
-      name: 'Acacia F5r8',
-      sdate: '11/13/21',
-      edate: '11/13/21',
-      city: 'Nairobi'
-    },
-    {
-      name: 'Beacon F5r8',
-      sdate: '11/13/21',
-      edate: '11/13/21',
-      city: 'Mombasa'
-    },
-    {
-      name: 'Comine F5r8',
-      sdate: '11/13/21',
-      edate: '11/13/21',
-      city: 'Nairobi'
-    }
-
-  ]
+//   ]
   
     return (
   <div className="reservation">
@@ -55,11 +52,11 @@ const reservations = [
   </thead>
   <tbody>
   {reservations.map((reservation) => (
-    <tr>
-      <td>1</td>
+    <tr key={reservation.id}>
+      <td>{reservation.id}</td>
       <td> {reservation.name}</td>
-      <td>{reservation.sdate}</td>
-      <td>{reservation.edate}</td>
+      <td>{reservation.startDate}</td>
+      <td>{reservation.endDate}</td>
       <td>{reservation.city}</td>
     </tr>
 
