@@ -1,9 +1,10 @@
 import React from 'react';
+import DeleteListItems from './components/DeleteListItems';
 
-const App = () => (
-  <div>
-    <h1>Hello team!</h1>
-  </div>
-);
+function App() {
+  return (
+    <DeleteListItems />
+  );
+}
 
 export default App;
