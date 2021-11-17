@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DeleteListItems from './components/DeleteListItems';
 import Item from './components/Item';
 

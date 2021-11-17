@@ -23,3 +23,16 @@ export const fetchItemById = async (id) => {
   const item = await response.json();
   return item;
 };
+
+export const deleteAndGetItems = async (itemId) => {
+  const requestOptions = {
+    method: 'DELETE',
+    redirect: 'follow',
+  };
+  const response = await fetch(
+    `http://localhost:3000/api/v1/items/${itemId}`,
+    requestOptions,
+  );
+  const data = await response.json();
+  return data
+}
