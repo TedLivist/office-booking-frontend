@@ -1,5 +1,6 @@
 .Car {
   /* border: 1px solid black; */
+
   /* height: 50vh; */
   color: #000;
   width: 100vw;
@@ -12,6 +13,7 @@
   justify-content: space-evenly;
   width: 84%;
   margin: auto;
+
   /* height: 40vh; */
   margin-top: 2rem;
 }
@@ -21,7 +23,7 @@
   width: 30%;
 }
 
-.car-item card{
+.car-item card {
   width: 100%;
   border: 1px solid black;
 }
@@ -29,12 +31,14 @@
 .carousel-control-prev,
 .carousel-control-next {
   width: 10% !important;
+
   /* border: 1px solid black !important; */
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: rgb(41, 128, 41);
+
   /* border-radius: 100% 0% 0% 100%; */
   width: 3.5rem !important;
   height: 2rem !important;
@@ -48,13 +52,16 @@
   .Car {
     display: none;
   }
+
   .Car-min {
     display: flex;
   }
+
   .car-content {
     flex-direction: column;
     margin: auto;
   }
+
   .car-item {
     width: 90%;
     margin: auto;
