@@ -1,15 +1,11 @@
 import React from 'react';
-import Carr from './app/components/Carr';
+import Carr from './components/Carr';
 import './css/carr.css';
-// import Reservations from './components/Reservations';
-// import './css/reservations.css';
 
 function App() {
   return (
     <>
       <Carr />
-
-      {/* <Reservations /> */}
 
     </>
 

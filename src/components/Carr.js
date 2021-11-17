@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import Item from './Item';
 
 function Carr() {
   return (
@@ -9,15 +10,15 @@ function Carr() {
         <Carousel.Item>
           <div className="car-content">
             <div className="car-item">
-              One
+              <Item />
             </div>
 
             <div className="car-item">
-              Two
+              <Item />
             </div>
 
             <div className="car-item">
-              Three
+              <Item />
             </div>
 
           </div>
@@ -26,15 +27,15 @@ function Carr() {
         <Carousel.Item>
           <div className="car-content">
             <div className="car-item">
-              four
+              <Item />
             </div>
 
             <div className="car-item">
-              five
+              <Item />
             </div>
 
             <div className="car-item">
-              six
+              <Item />
             </div>
 
           </div>
@@ -44,15 +45,15 @@ function Carr() {
 
           <div className="car-content">
             <div className="car-item">
-              seven
+              <Item />
             </div>
 
             <div className="car-item">
-              eight
+              <Item />
             </div>
 
             <div className="car-item">
-              nine
+              <Item />
             </div>
 
           </div>
