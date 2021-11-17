@@ -4,16 +4,15 @@ import React from 'react';
 import Reservations from './components/Reservations';
 import './css/reservations.css';
 
-
 function App() {
   return (
-  <>
-    {/* <Carr /> */}
+    <>
+      {/* <Carr /> */}
 
-    <Reservations />
+      <Reservations />
 
- </>
- 
+    </>
+
   );
 }
 
