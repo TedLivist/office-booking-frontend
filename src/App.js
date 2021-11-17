@@ -1,10 +1,19 @@
-import React from 'react';
-import DeleteListItems from './components/DeleteListItems';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAllItems } from './redux/items/items';
+import Reserve from './components/Rerserve';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllItems());
+  }, []);
+
   return (
-    <DeleteListItems />
+    <div>
+      <Reserve />
+    </div>
   );
-}
+};
 
 export default App;

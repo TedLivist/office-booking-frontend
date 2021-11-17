@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { VscSearch } from 'react-icons/vsc';
 import DateTimePicker from 'react-datetime-picker';
-import { getAllItems } from '../redux/items/items';
+import postReservation from '../redux/reservations/postReservation';
 import '../css/reserve.css';
 
 const Reserve = ({
@@ -16,16 +16,9 @@ const Reserve = ({
   const [end, setEnd] = useState(new Date());
   const [validated, setValidated] = useState(false);
   const items = useSelector((state) => state.items.items);
-  const dispatch = useDispatch();
   let options = [];
 
-  useEffect(() => {
-    if (!details) {
-      dispatch(getAllItems());
-    }
-  }, []);
-
-  if (items) {
+  if (!details) {
     options = items.map((item) => (<option key={item.id} value={items.indexOf(item)}>{item.name}</option>));
   }
 
@@ -34,13 +27,16 @@ const Reserve = ({
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+    } else {
+      event.preventDefault();
+      if (details) {
+        setItem(item);
+        await postReservation(user.username, { item_id: item.id, start_date: start, end_date: end });
+      } else {
+        await postReservation(user.username, { item_id: itm.id, start_date: start, end_date: end });
+      }
     }
-    event.preventDefault();
     setValidated(true);
-    if (details) {
-      setItem(item);
-    }
-    console.log(`Form data: ${itm.id} ${user.id} ${start} ${end}`);
   };
 
   const handleSelect = (value) => {
@@ -50,7 +46,7 @@ const Reserve = ({
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(#96bf0298, #96bf0298),url(${details ? item.img : itm.img})`,
+        backgroundImage: `linear-gradient(#96bf0298, #96bf0298),url(${details ? item.image : itm.image})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -72,9 +68,6 @@ const Reserve = ({
                 <Form.Group className="mb-3 w-lg-25" controlId="formBasicEmail">
                   <Form.Control className="reserve-input" type="text" value={item.name} readOnly />
                 </Form.Group>
-                <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-                  <Form.Control className="reserve-input" type="text" value={item.location} readOnly />
-                </Form.Group>
               </>
             ) : (
               <>
@@ -87,11 +80,11 @@ const Reserve = ({
                     Please select an office.
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-                  <Form.Control className="reserve-input" type="text" value={itm.location} required />
-                </Form.Group>
               </>
             )}
+            <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
+              <Form.Control className="reserve-input" type="text" value={details ? item.location : itm.location} readOnly required />
+            </Form.Group>
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
               <Form.Control className="reserve-input" type="text" value={user.username} readOnly required />
             </Form.Group>
@@ -99,7 +92,7 @@ const Reserve = ({
           <div className="d-flex flex-column flex-lg-row justify-content-around">
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
               <Form.Label className="reserve-label">From:</Form.Label>
-              <DateTimePicker className="reserve-input" onChange={setStart} minDate={start} amPmAriaLabel="Select AM/PM" maxDate={end} value={start} disableClock required />
+              <DateTimePicker className="reserve-input" onChange={setStart} minDate={start} maxDate={end} value={start} disableClock required />
             </Form.Group>
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
               <Form.Label className="reserve-label">To:</Form.Label>
@@ -119,7 +112,7 @@ Reserve.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-    img: PropTypes.string,
+    image: PropTypes.string,
     location: PropTypes.string,
     description: PropTypes.string,
   }),
@@ -132,15 +125,15 @@ Reserve.propTypes = {
 
 Reserve.defaultProps = {
   item: {
-    id: 1,
+    id: 26,
     name: 'office1',
-    img: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/list.png?token=AKNMSTZGJXXSWHX2Y33UV2DBTD27C',
+    image: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/list.png?token=AKNMSTZGJXXSWHX2Y33UV2DBTD27C',
     location: 'Rabat',
     description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
   },
   user: {
     id: '0',
-    username: 'username',
+    username: 'Lameck',
   },
   details: false,
 };
