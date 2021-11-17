@@ -54,10 +54,10 @@ function Reservations() {
   {reservations.map((reservation) => (
     <tr key={reservation.id}>
       <td>{reservation.id}</td>
-      <td> {reservation.name}</td>
+      <td> {reservation.item.name}</td>
       <td>{reservation.startDate}</td>
       <td>{reservation.endDate}</td>
-      <td>{reservation.city}</td>
+      <td>{reservation.item.location}</td>
     </tr>
 
      ))}
