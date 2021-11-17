@@ -61,6 +61,24 @@ function Carr() {
         </Carousel.Item>
       </Carousel>
 
+      <div className="Car-min">
+
+        <div className="car-content">
+          <div className="car-item">
+            <Item />
+          </div>
+
+          <div className="car-item">
+            <Item />
+          </div>
+
+          <div className="car-item">
+            <Item />
+          </div>
+
+        </div>
+      </div>
+
     </div>
   );
 }
