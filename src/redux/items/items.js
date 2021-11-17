@@ -13,9 +13,9 @@ export const getAllItems = createAsyncThunk('items/getAllItems', async () => {
 });
 
 export const deleteItem = createAsyncThunk('deleteLists/deleteItem', async (id) => {
-  const newData = deleteAndGetItems(id)
+  const newData = deleteAndGetItems(id);
   return newData;
-})
+});
 
 const itemsSlice = createSlice({
   name: 'items',
@@ -51,7 +51,7 @@ const itemsSlice = createSlice({
     [deleteItem.fulfilled]: (state, { payload }) => {
       state.items = payload;
       state.status = 'success';
-    }
+    },
   },
 });
 

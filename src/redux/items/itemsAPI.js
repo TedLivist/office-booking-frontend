@@ -34,5 +34,5 @@ export const deleteAndGetItems = async (itemId) => {
     requestOptions,
   );
   const data = await response.json();
-  return data
-}
+  return data;
+};
