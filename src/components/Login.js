@@ -21,7 +21,7 @@ const Login = () => {
 
   return (
     <div className="row justify-content-center">
-      <h1 className="mt-3 text-center">Tada!!</h1>
+      <h1 className="mt-3 text-center">Login Page</h1>
       <div className="col-6">
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
