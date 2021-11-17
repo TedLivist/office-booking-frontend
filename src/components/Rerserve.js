@@ -4,18 +4,20 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { VscSearch } from 'react-icons/vsc';
+import { useParams } from 'react-router-dom';
 import DateTimePicker from 'react-datetime-picker';
 import postReservation from '../redux/reservations/postReservation';
 import '../css/reserve.css';
 
 const Reserve = ({
-  item, user, details,
+  item, details,
 }) => {
   const [itm, setItem] = useState({});
   const [start, setStart] = useState(new Date());
   const [end, setEnd] = useState(new Date());
   const [validated, setValidated] = useState(false);
   const items = useSelector((state) => state.items.items);
+  const { username } = useParams();
   let options = [];
 
   if (!details) {
@@ -31,9 +33,9 @@ const Reserve = ({
       event.preventDefault();
       if (details) {
         setItem(item);
-        await postReservation(user.username, { item_id: item.id, start_date: start, end_date: end });
+        await postReservation(username, { item_id: item.id, start_date: start, end_date: end });
       } else {
-        await postReservation(user.username, { item_id: itm.id, start_date: start, end_date: end });
+        await postReservation(username, { item_id: itm.id, start_date: start, end_date: end });
       }
     }
     setValidated(true);
@@ -86,7 +88,7 @@ const Reserve = ({
               <Form.Control className="reserve-input" type="text" value={details ? item.location : itm.location} readOnly required />
             </Form.Group>
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-              <Form.Control className="reserve-input" type="text" value={user.username} readOnly required />
+              <Form.Control className="reserve-input" type="text" value={username} readOnly required />
             </Form.Group>
           </div>
           <div className="d-flex flex-column flex-lg-row justify-content-around">
@@ -116,10 +118,6 @@ Reserve.propTypes = {
     location: PropTypes.string,
     description: PropTypes.string,
   }),
-  user: PropTypes.shape({
-    id: PropTypes.string,
-    username: PropTypes.string,
-  }),
   details: PropTypes.bool,
 };
 
@@ -130,10 +128,6 @@ Reserve.defaultProps = {
     image: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/list.png?token=AKNMSTZGJXXSWHX2Y33UV2DBTD27C',
     location: 'Rabat',
     description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
-  },
-  user: {
-    id: '0',
-    username: 'Lameck',
   },
   details: false,
 };
