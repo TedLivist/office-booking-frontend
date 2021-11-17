@@ -1,18 +1,16 @@
 import React from 'react';
-// import Carr from './app/components/Carr';
-// import './app/css/carr.css';
-import Reservations from './components/Reservations';
-import './css/reservations.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DeleteListItems from './components/DeleteListItems';
+import Item from './components/Item';
 
 function App() {
   return (
-    <>
-      {/* <Carr /> */}
-
-      <Reservations />
-
-    </>
-
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Item />} />
+        <Route path="/deleteList" element={<DeleteListItems />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

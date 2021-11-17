@@ -16,7 +16,7 @@ const DeleteListItem = (props) => {
       <td>{name}</td>
       <td>{location}</td>
       <td>{description}</td>
-      <td><DeleteButton /></td>
+      <td><DeleteButton id={id} /></td>
     </>
   );
 };
