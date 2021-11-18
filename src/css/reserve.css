@@ -1,0 +1,93 @@
+.bg-reserve {
+  padding: 1% 5%;
+  height: 100%;
+}
+
+.div-reserve {
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.search-icon {
+  color: #96bf0298;
+  font-size: 20px;
+  border-color: white;
+  background-color: white;
+  padding: 0 15px 3px 15px;
+  border-radius: 500px;
+  align-self: flex-end;
+}
+
+.reserve-title {
+  color: #fdfdf3;
+}
+
+.reserve-description {
+  color: #fdfdf3;
+}
+
+.reserve-input {
+  background-color: #96bf0298 !important;
+  border-color: white !important;
+  color: #fdfdf3 !important;
+  border-radius: 500px !important;
+}
+
+.reserve-button {
+  background-color: #fff !important;
+  color: #96bf0298 !important;
+  border-radius: 500px !important;
+  border-color: white !important;
+}
+
+.reserve-button:hover {
+  background-color: #96bf0298 !important;
+  border-color: white !important;
+  color: white !important;
+}
+
+.react-datetime-picker__wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-top-color: rgb(206, 212, 218);
+  border-right-color: rgb(206, 212, 218);
+  border-bottom-color: rgb(206, 212, 218);
+  border-left-color: rgb(206, 212, 218);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: white 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #96bf0298;
+  color: #fdfdf3;
+  border-radius: 500px;
+}
+
+.react-datetime-picker__inputGroup__input {
+  color: white;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #96bf0298 !important;
+  opacity: 1 !important;
+}
+
+.reserve-label {
+  color: #fdfdf3;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 992px) {
+  .w-lg-60 {
+    width: 60%;
+  }
+}
