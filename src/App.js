@@ -6,6 +6,7 @@ import Reserve from './components/Rerserve';
 import DeleteListItems from './components/DeleteListItems';
 import Item from './components/Item';
 import Login from './components/Login';
+import ItemForm from './components/ItemForm';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/:username/reservation" element={<Reserve />} />
         <Route path="/:username/reservation/item/:id" element={<Reserve details />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/addItem" element={<ItemForm />} />
       </Routes>
     </BrowserRouter>
   );
