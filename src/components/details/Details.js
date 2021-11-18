@@ -34,12 +34,12 @@ const Details = () => {
                 <span>{item.description}</span>
               </li>
             </ul>
-            <div>
+            <div className="links">
               <Link to="/" id="more">
                 DISCOVER MORE OFFICES
               </Link>
               <br />
-              <Link to={`/:username/reservation/item/${id}`}>
+              <Link to={`/:username/reservation/item/${id}`} id="reserve">
                 <button className="reserve-btn" type="button">
                   Reserve
                 </button>
