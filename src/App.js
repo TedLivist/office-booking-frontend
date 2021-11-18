@@ -1,16 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DeleteListItems from './components/DeleteListItems';
-import Item from './components/Item';
+import Carr from './components/Carr';
+import './css/carr.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<Item />} />
-        <Route path="/deleteList" element={<DeleteListItems />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Carr />
+
+    </>
+
   );
 }
 

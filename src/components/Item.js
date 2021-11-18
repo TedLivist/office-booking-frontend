@@ -41,7 +41,7 @@ Item.defaultProps = {
   item: {
     id: 'office1',
     name: 'office1',
-    img: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/list.png?token=AKNMSTZGJXXSWHX2Y33UV2DBTD27C',
+    img: 'https://source.unsplash.com/rRiAzFkJPMo',
     description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
   },
 };
