@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { getItemById } from '../../redux/items/items';
-// import Button from './Button';
-
 import './Details.css';
 
 const Details = () => {
@@ -23,21 +21,28 @@ const Details = () => {
             <img src={item.image} alt={item.name} />
           </div>
           <div className="details-info-container">
-            <ul>
-              <li>
-                <span>Type:</span>
+            <ul className="list">
+              <li className="info">
+                <span>Type:&nbsp;&nbsp;</span>
                 <span>{item.name}</span>
               </li>
-              <li>
-                <span>Location:</span>
+              <li className="info">
+                <span>Location:&nbsp;&nbsp;</span>
                 <span>{item.location}</span>
               </li>
-              <li>
+              <li className="info">
                 <span>{item.description}</span>
               </li>
             </ul>
-            <Link to="/">DISCOVER MORE OFFICES</Link>
-            {/* <Button name="RESERVE" clickHandler={() => setModalShow(true)} /> */}
+            <div>
+              <Link to="/" id="more">
+                DISCOVER MORE OFFICES
+              </Link>
+              <br />
+              <Link to="/:username/reservation/item/:id">
+                <button className="reserve-btn">Reserve</button>
+              </Link>
+            </div>
           </div>
         </div>
       )}

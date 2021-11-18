@@ -11,14 +11,14 @@ import Reserve from './components/Rerserve';
 import DeleteListItems from './components/DeleteListItems';
 import Login from './components/Login';
 import Details from './components/details/Details';
-// import Home from './components/Home';
+import Home from './components/Home';
 import Reservations from './components/Reservations';
 
 const routes = [
   {
     path: '/',
-    name: 'DeleteListItems',
-    component: <DeleteListItems />,
+    name: 'Home',
+    component: <Home />,
   },
   {
     path: '/:username/reservations',
@@ -38,7 +38,7 @@ const routes = [
   {
     path: '/:username/reservation/item/:id',
     name: 'Reserve',
-    component: <Reserve />,
+    component: <Reserve details />,
   },
   {
     path: '/deleteList',
@@ -70,7 +70,7 @@ const App = () => {
             })}
             to="/"
           >
-            DeleteListItems
+            Home
           </NavLink>
           <NavLink
             style={({ isActive }) => ({

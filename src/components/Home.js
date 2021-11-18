@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getAllItems } from '../redux/items/items';
+import '../css/Home.css';
 
 const Home = () => {
   const dispatch = useDispatch();
