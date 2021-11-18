@@ -4,7 +4,7 @@ export const fetchAllItems = async () => {
     redirect: 'follow',
   };
   const response = await fetch(
-    'http://localhost:3001/api/v1/items',
+    'http://localhost:3000/api/v1/items',
     requestOptions,
   );
   const items = await response.json();
@@ -17,7 +17,7 @@ export const fetchItemById = async (id) => {
     redirect: 'follow',
   };
   const response = await fetch(
-    `http://localhost:3001/api/v1/items/${id}`,
+    `http://localhost:3000/api/v1/items/${id}`,
     requestOptions,
   );
   const item = await response.json();
@@ -30,7 +30,7 @@ export const deleteAndGetItems = async (itemId) => {
     redirect: 'follow',
   };
   const response = await fetch(
-    `http://localhost:3001/api/v1/items/${itemId}`,
+    `http://localhost:3000/api/v1/items/${itemId}`,
     requestOptions,
   );
   const data = await response.json();
