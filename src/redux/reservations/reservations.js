@@ -7,7 +7,9 @@ export const getReservations = createAsyncThunk(
   async (username) => {
     const reservations = await fetchReservations(username);
     return reservations.map(
-      ({ id, item, start_date: startDate, end_date: endDate }) => ({
+      ({
+        id, item, start_date: startDate, end_date: endDate,
+      }) => ({
         id,
         item,
         startDate,

@@ -39,8 +39,10 @@ const Details = () => {
                 DISCOVER MORE OFFICES
               </Link>
               <br />
-              <Link to="/:username/reservation/item/:id">
-                <button className="reserve-btn">Reserve</button>
+              <Link to={`/:username/reservation/item/${id}`}>
+                <button className="reserve-btn" type="button">
+                  Reserve
+                </button>
               </Link>
             </div>
           </div>
