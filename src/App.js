@@ -13,13 +13,18 @@ import Login from './components/Login';
 import Details from './components/details/Details';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
-// import ItemForm from './components/ItemForm';
+import Carr from './components/Carr';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: <Home />,
+  },
+  {
+    path: '/Carr',
+    name: 'Carr',
+    component: <Carr />,
   },
   {
     path: '/:username/reservations',
@@ -72,6 +77,16 @@ const App = () => {
             to="/"
           >
             Home
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => ({
+              display: 'block',
+              margin: '1rem 0',
+              color: isActive ? 'red' : '',
+            })}
+            to="/Carr"
+          >
+            Carr
           </NavLink>
           <NavLink
             style={({ isActive }) => ({

@@ -9,7 +9,7 @@ const Item = ({ item }) => {
   return (
     <a className="w-50 text-decoration-none link-dark text-center text-dark" href={page}>
       <Card className="item-card border-0">
-        <img src={item.img} className="card-img-top item-img" alt="..." />
+        <img src={item.image} className="card-img-top item-img" alt="..." />
         <div className="d-flex justify-content-between align-items-center px-3 pt-2">
           <Card.Title className="item-name">{item.name}</Card.Title>
         </div>
@@ -32,7 +32,7 @@ Item.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
-    img: PropTypes.string,
+    image: PropTypes.string,
     description: PropTypes.string,
   }),
 };
@@ -41,7 +41,7 @@ Item.defaultProps = {
   item: {
     id: 'office1',
     name: 'office1',
-    img: 'https://source.unsplash.com/rRiAzFkJPMo',
+    image: 'https://source.unsplash.com/rRiAzFkJPMo',
     description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
   },
 };
