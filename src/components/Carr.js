@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Item from './Item';
+import '../css/carr.css';
 
 function Carr() {
   return (

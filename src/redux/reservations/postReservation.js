@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const postReservation = async (username, data) => {
-  const request = await fetch(`http://localhost:3001/api/v1/${username}/reservations`, {
+  const request = await fetch(`http://localhost:3000/api/v1/${username}/reservations`, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
