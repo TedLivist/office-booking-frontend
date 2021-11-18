@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { deleteItem } from '../redux/items/items';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { deleteItem } from '../redux/items/items';
 
 const DeleteButton = (props) => {
   const dispatch = useDispatch();
@@ -17,14 +17,13 @@ const DeleteButton = (props) => {
   const onDelete = () => {
     dispatch(deleteItem(id));
     handleClose();
-    console.log("Deleted")
   };
 
   return (
     <>
-    <button type="button" onClick={handleShow} className="btn btn-sm btn-danger">Delete Item</button>
+      <button type="button" onClick={handleShow} className="btn btn-sm btn-danger">Delete Item</button>
 
-    <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Delete Office</Modal.Title>
         </Modal.Header>
