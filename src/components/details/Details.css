@@ -51,7 +51,6 @@
 
 img {
   border-radius: 20px;
-  /* height: 40vh; */
   width: 100%;
 }
 
@@ -125,7 +124,4 @@ img {
     width: 65%;
     height: 60vh;
   }
-}
-
-@media (min-width: 1200px) {
 }
