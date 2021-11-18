@@ -13,13 +13,13 @@ import Error from './Error';
 import '../css/reserve.css';
 
 const Reserve = ({ details }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [itm, setItem] = useState({});
   const [start, setStart] = useState(new Date());
   const [end, setEnd] = useState(new Date());
   const [validated, setValidated] = useState(false);
   const items = useSelector((state) => state.items.items);
-  const item = useSelector((state) => state.items.item)
+  const item = useSelector((state) => state.items.item);
   const { username, id } = useParams();
   let options = [];
   const [show, setShow] = useState(false);
@@ -38,7 +38,7 @@ const Reserve = ({ details }) => {
     setItem({});
     setStart(new Date());
     setEnd(new Date());
-  }
+  };
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -51,9 +51,9 @@ const Reserve = ({ details }) => {
       event.preventDefault();
       if (details) {
         setItem(item);
-        data = { item_id: item.id, start_date: start, end_date: end }
+        data = { item_id: item.id, start_date: start, end_date: end };
       } else {
-        data = { item_id: itm.id, start_date: start, end_date: end }
+        data = { item_id: itm.id, start_date: start, end_date: end };
       }
       await postReservation(username, data);
       setShow(true);
@@ -122,13 +122,13 @@ const Reserve = ({ details }) => {
               <DateTimePicker className="reserve-input" onChange={setEnd} value={end} minDate={start} disableClock required />
             </Form.Group>
           </div>
-          <Button className="w-lg-25 mb-3 reserve-button align-self-center"  type="submit">
+          <Button className="w-lg-25 mb-3 reserve-button align-self-center" type="submit">
             Submit
           </Button>
         </Form>
       </div>
-      <Thanks show={show} handleClose={handleClose}/>
-      <Error show={showE} handleClose={handleCloseE}/>
+      <Thanks show={show} handleClose={handleClose} />
+      <Error show={showE} handleClose={handleCloseE} />
     </section>
   );
 };
