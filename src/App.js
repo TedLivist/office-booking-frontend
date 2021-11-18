@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getAllItems } from './redux/items/items';
 import Reserve from './components/Rerserve';
 import DeleteListItems from './components/DeleteListItems';
-import Item from './components/Item';
+import Carr from './components/Carr';
 import Login from './components/Login';
 import ItemForm from './components/ItemForm';
 
@@ -16,7 +16,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Item />} />
+        <Route exact path="/" element={<Carr />} />
         <Route path="/deletelist" element={<DeleteListItems />} />
         <Route path="/:username/reservation" element={<Reserve />} />
         <Route path="/:username/reservation/item/:id" element={<Reserve details />} />
