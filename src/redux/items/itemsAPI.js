@@ -30,7 +30,7 @@ export const deleteAndGetItems = async (itemId) => {
     redirect: 'follow',
   };
   const response = await fetch(
-    `http://localhost:3001/api/v1/items/${itemId}`,
+    `http://localhost:3000/api/v1/items/${itemId}`,
     requestOptions,
   );
   const data = await response.json();
