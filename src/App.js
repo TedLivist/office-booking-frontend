@@ -18,7 +18,10 @@ const App = () => {
         <Route exact path="/" element={<Item />} />
         <Route path="/deleteList" element={<DeleteListItems />} />
         <Route path="/:username/reservation" element={<Reserve />} />
-        <Route path="/:username/reservation/item/:id" element={<Reserve details />} />
+        <Route
+          path="/:username/reservation/item/:id"
+          element={<Reserve details />}
+        />
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>

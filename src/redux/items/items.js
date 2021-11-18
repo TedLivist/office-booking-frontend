@@ -12,7 +12,7 @@ export const getAllItems = createAsyncThunk('items/getAllItems', async () => {
   return items;
 });
 
-export const deleteItem = createAsyncThunk('deleteLists/deleteItem', async (id) => {
+export const deleteItem = createAsyncThunk('items/deleteItem', async (id) => {
   const newData = deleteAndGetItems(id);
   return newData;
 });
