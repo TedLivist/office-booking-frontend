@@ -28,20 +28,12 @@ function Carr() {
       </Carousel>
 
       <div className="Car-min">
-
         <div className="car-content">
-          <div className="car-item">
-            <Item />
-          </div>
-
-          <div className="car-item">
-            <Item />
-          </div>
-
-          <div className="car-item">
-            <Item />
-          </div>
-
+          {items.map((item) => (
+            <div key={item.id} className="car-item">
+              <Item item={item} />
+            </div>
+          ))}
         </div>
       </div>
 
