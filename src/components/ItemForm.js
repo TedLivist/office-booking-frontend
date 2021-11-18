@@ -1,19 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const ItemForm = () => {
-  const [ itemsInput, setItemsInput ] = useState({name: '', location: '', description: ''})
+  const [ itemsInput, setItemsInput ] = useState({name: '', location: '', image: '', description: ''})
   const [ error, setError ] = useState('')
 
   const handleChange = (e) => {
     setItemsInput({ ...itemsInput, [e.target.name]: e.target.value });
   }
 
-  useEffect(() => {
-    console.log(itemsInput)
-  }, [itemsInput])
+  const handleImage = (e) => {
+    let file = URL.createObjectURL(e.target.files[0])
+    setItemsInput({ ...itemsInput, image: file })
+  }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
 
+    if (itemsInput.name.trim() && itemsInput.location.trim() && itemsInput.description.trim()) {
+      // const { name, location, image, description } = itemsInput
+      setItemsInput({ name: '', location: '', image: '', description: '' })
+    } else {
+      setError('All fields must be filled')
+    }
   }
 
   return (
@@ -22,7 +30,7 @@ const ItemForm = () => {
       <div className="col-6">
         <form onSubmit={handleSubmit} className="mt-2">
           <div className="mb-3">
-            {/* {error.length > 2 ? <div id="errorHelp" className="form-text text-danger">{error}</div> : '' } */}
+            {error.length > 2 ? <div id="errorHelp" className="form-text text-danger">{error}</div> : '' }
             <label htmlFor="name" name="name" className="form-label">Name</label>
             <input type="text" name="name" onChange={handleChange} value={itemsInput.name} placeholder="Enter item name" required className="form-control border border-info rounded-pill" id="name" aria-describedby="name" />
           </div>
@@ -32,7 +40,7 @@ const ItemForm = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="formFile" className="form-label">Upload Image</label>
-            <input className="form-control rounded-pill border border-info" required type="file" id="formFile" />
+            <input className="form-control rounded-pill border border-info" onChange={handleImage} required type="file" id="formFile" />
           </div>
           <div className="mb-3">
             <label htmlFor="description" className="form-label">Description</label>
