@@ -17,11 +17,11 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Item />} />
-        <Route path="/deleteList" element={<DeleteListItems />} />
+        <Route path="/deletelist" element={<DeleteListItems />} />
         <Route path="/:username/reservation" element={<Reserve />} />
         <Route path="/:username/reservation/item/:id" element={<Reserve details />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/addItem" element={<ItemForm />} />
+        <Route path="/additem" element={<ItemForm />} />
       </Routes>
     </BrowserRouter>
 

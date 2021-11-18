@@ -24,8 +24,9 @@ const ItemForm = () => {
       setItemsInput({
         name: '', location: '', image: '', description: '',
       });
+      setError('');
     } else {
-      setError('All fields must be filled');
+      setError('All fields must be meaningfully filled');
     }
   };
 

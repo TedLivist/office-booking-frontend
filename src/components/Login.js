@@ -15,6 +15,7 @@ const Login = () => {
     if (fieldsInput.username.trim() && fieldsInput.password.trim()) {
       // const {username, password} = fieldsInput
       setFieldInput({ username: '', password: '' });
+      setError('');
     } else {
       setError('Empty fields are not allowed');
     }
