@@ -28,7 +28,7 @@ const Reserve = ({ details }) => {
   const handleCloseE = () => setShowE(false);
   useEffect(() => {
     dispatch(getItemById(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   if (!details) {
     options = items.map((item) => (<option key={item.id} value={items.indexOf(item)}>{item.name}</option>));
