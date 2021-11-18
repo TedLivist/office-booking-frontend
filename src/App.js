@@ -4,8 +4,6 @@ import DeleteListItems from './components/DeleteListItems';
 import Item from './components/Item';
 import Login from './components/Login';
 
-
-
 function App() {
   return (
     <BrowserRouter>
