@@ -1,44 +1,65 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { VscSearch } from 'react-icons/vsc';
 import { useParams } from 'react-router-dom';
 import DateTimePicker from 'react-datetime-picker';
 import postReservation from '../redux/reservations/postReservation';
+import { getItemById } from '../redux/items/items';
+import Thanks from './Thanks';
+import Error from './Error';
 import '../css/reserve.css';
 
-const Reserve = ({
-  item, details,
-}) => {
+const Reserve = ({ details }) => {
+  const dispatch = useDispatch()
   const [itm, setItem] = useState({});
   const [start, setStart] = useState(new Date());
   const [end, setEnd] = useState(new Date());
   const [validated, setValidated] = useState(false);
   const items = useSelector((state) => state.items.items);
-  const { username } = useParams();
+  const item = useSelector((state) => state.items.item)
+  const { username, id } = useParams();
   let options = [];
+  const [show, setShow] = useState(false);
+  const [showE, setShowE] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleCloseE = () => setShowE(false);
+  useEffect(() => {
+    dispatch(getItemById(id));
+  }, [dispatch]);
 
   if (!details) {
     options = items.map((item) => (<option key={item.id} value={items.indexOf(item)}>{item.name}</option>));
   }
 
+  const resetForm = () => {
+    setItem({});
+    setStart(new Date());
+    setEnd(new Date());
+  }
+
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
+    let data = {};
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      setShowE(true);
     } else {
       event.preventDefault();
       if (details) {
         setItem(item);
-        await postReservation(username, { item_id: item.id, start_date: start, end_date: end });
+        data = { item_id: item.id, start_date: start, end_date: end }
       } else {
-        await postReservation(username, { item_id: itm.id, start_date: start, end_date: end });
+        data = { item_id: itm.id, start_date: start, end_date: end }
       }
+      await postReservation(username, data);
+      setShow(true);
     }
     setValidated(true);
+    resetForm();
   };
 
   const handleSelect = (value) => {
@@ -93,42 +114,30 @@ const Reserve = ({
           </div>
           <div className="d-flex flex-column flex-lg-row justify-content-around">
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-              <Form.Label className="reserve-label">From:</Form.Label>
+              <Form.Label className="reserve-label pe-2">From:</Form.Label>
               <DateTimePicker className="reserve-input" onChange={setStart} minDate={start} maxDate={end} value={start} disableClock required />
             </Form.Group>
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-              <Form.Label className="reserve-label">To:</Form.Label>
+              <Form.Label className="reserve-label pe-3">To:</Form.Label>
               <DateTimePicker className="reserve-input" onChange={setEnd} value={end} minDate={start} disableClock required />
             </Form.Group>
           </div>
-          <Button className="w-lg-25 mb-3 reserve-button align-self-center" type="submit">
+          <Button className="w-lg-25 mb-3 reserve-button align-self-center"  type="submit">
             Submit
           </Button>
         </Form>
       </div>
+      <Thanks show={show} handleClose={handleClose}/>
+      <Error show={showE} handleClose={handleCloseE}/>
     </section>
   );
 };
 
 Reserve.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    image: PropTypes.string,
-    location: PropTypes.string,
-    description: PropTypes.string,
-  }),
   details: PropTypes.bool,
 };
 
 Reserve.defaultProps = {
-  item: {
-    id: 26,
-    name: 'office1',
-    image: 'https://raw.githubusercontent.com/microverseinc/curriculum-final-capstone/main/projects/images/list.png?token=AKNMSTZGJXXSWHX2Y33UV2DBTD27C',
-    location: 'Rabat',
-    description: 'Nice looking office. Nice looking office. Nice looking office. Nice looking office. ',
-  },
   details: false,
 };
 

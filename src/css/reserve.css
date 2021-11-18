@@ -48,7 +48,7 @@
 
 .react-datetime-picker__wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-grow: 1;
   flex-shrink: 0;
   width: 100%;
@@ -86,7 +86,6 @@
 
 .reserve-label {
   color: #fdfdf3;
-  padding-right: 2rem;
   font-size: 20px;
 }
 

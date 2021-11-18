@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-export default async (username, data) => {
+const postReservation = async (username, data) => {
   const request = await fetch(`http://localhost:3001/api/v1/${username}/reservations`, {
     method: 'POST',
     mode: 'cors',
@@ -15,3 +15,5 @@ export default async (username, data) => {
   const response = await request.json();
   return response;
 };
+
+export default postReservation;
