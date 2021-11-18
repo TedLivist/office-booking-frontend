@@ -42,7 +42,6 @@
 
 .reserve-button:hover {
   background-color: #96bf0298 !important;
-
   border-color: white !important;
   color: white !important;
 }
@@ -59,12 +58,12 @@
   line-height: 1.5;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-    border-top-color: rgb(206, 212, 218);
-    border-right-color: rgb(206, 212, 218);
-    border-bottom-color: rgb(206, 212, 218);
-    border-left-color: rgb(206, 212, 218);
-    -webkit-appearance: none;
-    -moz-appearance: none;
+  border-top-color: rgb(206, 212, 218);
+  border-right-color: rgb(206, 212, 218);
+  border-bottom-color: rgb(206, 212, 218);
+  border-left-color: rgb(206, 212, 218);
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   transition: white 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-color: #96bf0298;
@@ -79,7 +78,6 @@
 .form-control:disabled,
 .form-control[readonly] {
   background-color: #96bf0298 !important;
-
   opacity: 1 !important;
 }
 
