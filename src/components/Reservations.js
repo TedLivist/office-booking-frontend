@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
+import { useParams } from 'react-router-dom';
 import { getReservations } from '../redux/reservations/reservations';
 
 function Reservations() {
   const dispatch = useDispatch();
+  const { username } = useParams();
   const reservations = useSelector((state) => state.reservations.reservations);
 
   useEffect(() => {
-    dispatch(getReservations('Peter'));
+    dispatch(getReservations(username));
   }, [dispatch]);
 
   // const reservations = [
@@ -48,7 +50,7 @@ function Reservations() {
           </tr>
         </thead>
         <tbody>
-          {reservations.map((reservation) => (
+          {reservations && reservations.map((reservation) => (
             <tr key={reservation.id}>
               <td>{reservation.id}</td>
               <td>
@@ -59,12 +61,9 @@ function Reservations() {
               <td>{reservation.endDate}</td>
               <td>{reservation.item.location}</td>
             </tr>
-
           ))}
         </tbody>
-
       </Table>
-
     </div>
   );
 }
