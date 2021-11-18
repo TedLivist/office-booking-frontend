@@ -1,4 +1,4 @@
-export default async (username) => {
+const fetchReservations = async (username) => {
   const requestOptions = {
     method: 'GET',
     redirect: 'follow',
@@ -11,3 +11,5 @@ export default async (username) => {
   const { reservations } = result;
   return reservations;
 };
+
+export default fetchReservations;

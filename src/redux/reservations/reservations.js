@@ -1,15 +1,13 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import fetchReservations from './reservationsAPI';
+import fetchReservations from './fetchReservations';
 
 export const getReservations = createAsyncThunk(
   'reservations/getReservations',
   async (username) => {
     const reservations = await fetchReservations(username);
     return reservations.map(
-      ({
-        id, item, start_date: startDate, end_date: endDate,
-      }) => ({
+      ({ id, item, start_date: startDate, end_date: endDate }) => ({
         id,
         item,
         startDate,
