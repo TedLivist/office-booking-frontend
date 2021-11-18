@@ -5,6 +5,7 @@ import { getAllItems } from './redux/items/items';
 import Reserve from './components/Rerserve';
 import DeleteListItems from './components/DeleteListItems';
 import Item from './components/Item';
+import Login from './components/Login';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/deleteList" element={<DeleteListItems />} />
         <Route path="/:username/reservation" element={<Reserve />} />
         <Route path="/:username/reservation/item/:id" element={<Reserve details />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
