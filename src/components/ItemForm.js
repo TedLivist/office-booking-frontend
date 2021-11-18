@@ -1,28 +1,33 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 
 const ItemForm = () => {
-  const [ itemsInput, setItemsInput ] = useState({name: '', location: '', image: '', description: ''})
-  const [ error, setError ] = useState('')
+  const [itemsInput, setItemsInput] = useState({
+    name: '', location: '', image: '', description: '',
+  });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setItemsInput({ ...itemsInput, [e.target.name]: e.target.value });
-  }
+  };
 
   const handleImage = (e) => {
-    let file = URL.createObjectURL(e.target.files[0])
-    setItemsInput({ ...itemsInput, image: file })
-  }
+    const file = URL.createObjectURL(e.target.files[0]);
+    setItemsInput({ ...itemsInput, image: file });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (itemsInput.name.trim() && itemsInput.location.trim() && itemsInput.description.trim()) {
       // const { name, location, image, description } = itemsInput
-      setItemsInput({ name: '', location: '', image: '', description: '' })
+      setItemsInput({
+        name: '', location: '', image: '', description: '',
+      });
     } else {
-      setError('All fields must be filled')
+      setError('All fields must be filled');
     }
-  }
+  };
 
   return (
     <div className="row justify-content-center">
@@ -44,13 +49,13 @@ const ItemForm = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="description" className="form-label">Description</label>
-            <textarea name="description" className="form-control rounded border border-info" id="description" rows="7" onChange={handleChange} required placeholder="Enter item description" value={itemsInput.description}></textarea>
+            <textarea name="description" className="form-control rounded border border-info" id="description" rows="7" onChange={handleChange} required placeholder="Enter item description" value={itemsInput.description} />
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
   );
-}
- 
+};
+
 export default ItemForm;
