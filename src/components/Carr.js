@@ -9,15 +9,15 @@ function Carr() {
   const numberSlides = items.length > 3 ? Math.ceil(items.length / 3) : 1;
   const slides = [];
   let j = 0;
-  let i = 1;
-  while (i < numberSlides) {
+  let i = 0;
+  while (i < numberSlides -1 ) {
     slides[i] = <Carousel.Item key={i}><div className="car-content">{items.slice(j, j + 3).map((item) => (<div className="car-item" key={item.id}><Item item={item} /></div>))}</div></Carousel.Item>;
     j += 3;
     i += 1;
   }
 
   if (items.length - j !== 0) {
-    slides[numberSlides + 1] = <Carousel.Item key={numberSlides + 1}><div className="car-content">{items.slice(j, items.length + 1).map((item) => (<div className="car-item" key={item.id}><Item item={item} /></div>))}</div></Carousel.Item>;
+    slides[numberSlides] = <Carousel.Item key={numberSlides + 1}><div className="car-content">{items.slice(j, items.length + 1).map((item) => (<div className="car-item" key={item.id}><Item item={item} /></div>))}</div></Carousel.Item>;
   }
 
   return (
