@@ -31,7 +31,11 @@ const Reserve = ({ details }) => {
   }, [dispatch, id]);
 
   if (!details) {
-    options = items.map((item) => (<option key={item.id} value={items.indexOf(item)}>{item.name}</option>));
+    options = items.map((item) => (
+      <option key={item.id} value={items.indexOf(item)}>
+        {item.name}
+      </option>
+    ));
   }
 
   const resetForm = () => {
@@ -69,34 +73,51 @@ const Reserve = ({ details }) => {
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(#96bf0298, #96bf0298),url(${details ? item.image : itm.image})`,
+        backgroundImage: `linear-gradient(#96bf0298, #96bf0298),url(${
+          details ? item.image : itm.image
+        })`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
       }}
-      className="bg-reserve d-flex flex-column"
+      className="bg-reserve d-flex flex-column w-100"
     >
       <span className="search-icon">
         <VscSearch />
       </span>
       <div className="div-reserve d-flex flex-column align-items-center">
-        <h1 className="reserve-title">
-          Book this office
-        </h1>
+        <h1 className="reserve-title">Book this office</h1>
         <p className="reserve-description">{item.description}</p>
-        <Form noValidate validated={validated} onSubmit={handleSubmit} className="w-lg-60 d-flex flex-column justify-content-around">
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleSubmit}
+          className="w-lg-60 d-flex flex-column justify-content-around"
+        >
           <div className="d-flex flex-column flex-lg-row justify-content-around">
             {details ? (
               <>
                 <Form.Group className="mb-3 w-lg-25" controlId="formBasicEmail">
-                  <Form.Control className="reserve-input" type="text" value={item.name} readOnly />
+                  <Form.Control
+                    className="reserve-input"
+                    type="text"
+                    value={item.name}
+                    readOnly
+                  />
                 </Form.Group>
               </>
             ) : (
               <>
                 <Form.Group className="mb-3 " controlId="formBasicEmail">
-                  <Form.Control as="select" className="reserve-input px-lg-5" onChange={(e) => handleSelect(e.target.value)} required>
-                    <option value="" disabled selected>Select office</option>
+                  <Form.Control
+                    as="select"
+                    className="reserve-input px-lg-5"
+                    onChange={(e) => handleSelect(e.target.value)}
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Select office
+                    </option>
                     {options}
                   </Form.Control>
                   <Form.Control.Feedback type="invalid">
@@ -106,23 +127,53 @@ const Reserve = ({ details }) => {
               </>
             )}
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-              <Form.Control className="reserve-input" type="text" value={details ? item.location : itm.location} readOnly required />
+              <Form.Control
+                className="reserve-input"
+                type="text"
+                value={details ? item.location : itm.location}
+                readOnly
+                required
+              />
             </Form.Group>
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
-              <Form.Control className="reserve-input" type="text" value={username} readOnly required />
+              <Form.Control
+                className="reserve-input"
+                type="text"
+                value={username}
+                readOnly
+                required
+              />
             </Form.Group>
           </div>
           <div className="d-flex flex-column flex-lg-row justify-content-around">
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
               <Form.Label className="reserve-label pe-2">From:</Form.Label>
-              <DateTimePicker className="reserve-input" onChange={setStart} minDate={start} maxDate={end} value={start} disableClock required />
+              <DateTimePicker
+                className="reserve-input"
+                onChange={setStart}
+                minDate={start}
+                maxDate={end}
+                value={start}
+                disableClock
+                required
+              />
             </Form.Group>
             <Form.Group className="mb-3 w-lg-25" controlId="formBasicPassword">
               <Form.Label className="reserve-label pe-3">To:</Form.Label>
-              <DateTimePicker className="reserve-input" onChange={setEnd} value={end} minDate={start} disableClock required />
+              <DateTimePicker
+                className="reserve-input"
+                onChange={setEnd}
+                value={end}
+                minDate={start}
+                disableClock
+                required
+              />
             </Form.Group>
           </div>
-          <Button className="w-lg-25 mb-3 reserve-button align-self-center" type="submit">
+          <Button
+            className="w-lg-25 mb-3 reserve-button align-self-center"
+            type="submit"
+          >
             Submit
           </Button>
         </Form>

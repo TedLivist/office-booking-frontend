@@ -27,11 +27,14 @@
 }
 
 .details-section {
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: #fff;
   min-height: 100vh;
   width: 100%;
   padding: 20px;
+  margin-top: 10vh;
 }
 
 .details-container {
@@ -121,7 +124,6 @@ img {
   }
 
   .details-image-container {
-    width: 65%;
-    height: 60vh;
+    width: 60%;
   }
 }

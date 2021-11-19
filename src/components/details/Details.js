@@ -39,7 +39,7 @@ const Details = () => {
                 DISCOVER MORE OFFICES
               </Link>
               <br />
-              <Link to={`/:username/reservation/item/${id}`} id="reserve">
+              <Link to={`/username/reservation/item/${id}`} id="reserve">
                 <button className="reserve-btn" type="button">
                   Reserve
                 </button>
