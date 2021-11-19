@@ -11,6 +11,7 @@ import { getUsername } from './redux/users/users';
 import Reserve from './components/Rerserve';
 import DeleteListItems from './components/DeleteListItems';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import Details from './components/details/Details';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
@@ -56,6 +57,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: <Login />,
+  },
+  {
+    path: '/sign-up',
+    name: 'Signup',
+    component: <Signup />,
   },
 ];
 
