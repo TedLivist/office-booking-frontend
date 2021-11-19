@@ -46,7 +46,7 @@ const Reserve = ({ details }) => {
     setEnd(new Date());
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     const form = event.currentTarget;
     let data = {};
     if (form.checkValidity() === false) {
@@ -65,7 +65,8 @@ const Reserve = ({ details }) => {
           item_id: itm.id, start_date: start, end_date: end,
         };
       }
-      await postReservation(username, data);
+
+      postReservation(username, data);
       setShow(true);
     }
     setValidated(true);

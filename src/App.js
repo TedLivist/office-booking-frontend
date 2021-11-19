@@ -14,64 +14,63 @@ import Nav from './components/navigation/Nav';
 import ItemForm from './components/ItemForm';
 import NavMobile from './components/navigation/NavMobile';
 
+const routes = [
+  {
+    path: '/',
+    name: 'OFFICES',
+    component: <Home />,
+    isNavItem: true,
+  },
+  {
+    path: '/reservations',
+    name: 'MY RESERVATIONS',
+    component: <Reservations />,
+    isNavItem: true,
+  },
+  {
+    path: '/items/:id',
+    name: 'Items',
+    component: <Details />,
+  },
+  {
+    path: '/reservation',
+    name: 'RESERVE OFFICE',
+    component: <Reserve />,
+    isNavItem: true,
+  },
+  {
+    path: '/:username/reservation/item/:id',
+    name: 'Reserve',
+    component: <Reserve details />,
+  },
+  {
+    path: '/add_office',
+    name: 'ADD OFFICE',
+    component: <ItemForm />,
+    isNavItem: true,
+  },
+  {
+    path: '/deleteList',
+    name: 'REMOVE OFFICE',
+    component: <DeleteListItems />,
+    isNavItem: true,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: <Login />,
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: <Logout />,
+    isNavItem: true,
+  },
+];
 const App = () => {
   const dispatch = useDispatch();
 
   const username = useSelector((state) => state.users.username);
-
-  const routes = [
-    {
-      path: '/',
-      name: 'OFFICES',
-      component: <Home />,
-      isNavItem: true,
-    },
-    {
-      path: `/${username}/reservations`,
-      name: 'MY RESERVATIONS',
-      component: <Reservations />,
-      isNavItem: true,
-    },
-    {
-      path: '/items/:id',
-      name: 'Items',
-      component: <Details />,
-    },
-    {
-      path: `/:${username}/reservation`,
-      name: 'RESERVE OFFICE',
-      component: <Reserve />,
-      isNavItem: true,
-    },
-    {
-      path: `/:${username}/reservation/item/:id`,
-      name: 'Reserve',
-      component: <Reserve details />,
-    },
-    {
-      path: '/add_office',
-      name: 'ADD OFFICE',
-      component: <ItemForm />,
-      isNavItem: true,
-    },
-    {
-      path: '/deleteList',
-      name: 'REMOVE OFFICE',
-      component: <DeleteListItems />,
-      isNavItem: true,
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: <Login />,
-    },
-    {
-      path: '/logout',
-      name: 'Logout',
-      component: <Logout />,
-      isNavItem: true,
-    },
-  ];
 
   useEffect(() => {
     dispatch(getUsername());
