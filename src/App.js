@@ -1,10 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  NavLink,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAllItems } from './redux/items/items';
 import Reserve from './components/Rerserve';
@@ -13,23 +8,22 @@ import Login from './components/Login';
 import Details from './components/details/Details';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
-import Carr from './components/Carr';
+import Nav from './components/navigation/Nav';
+import ItemForm from './components/ItemForm';
+import NavMobile from './components/navigation/NavMobile';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'OFFICES',
     component: <Home />,
-  },
-  {
-    path: '/Carr',
-    name: 'Carr',
-    component: <Carr />,
+    isNavItem: true,
   },
   {
     path: '/:username/reservations',
-    name: 'Reservations',
+    name: 'MY RESERVATIONS',
     component: <Reservations />,
+    isNavItem: true,
   },
   {
     path: '/items/:id',
@@ -38,8 +32,9 @@ const routes = [
   },
   {
     path: '/:username/reservation',
-    name: 'Reserve',
+    name: 'RESERVE OFFICE',
     component: <Reserve />,
+    isNavItem: true,
   },
   {
     path: '/:username/reservation/item/:id',
@@ -47,9 +42,16 @@ const routes = [
     component: <Reserve details />,
   },
   {
+    path: '/add_office',
+    name: 'ADD OFFICE',
+    component: <ItemForm />,
+    isNavItem: true,
+  },
+  {
     path: '/deleteList',
-    name: 'DeleteListItems',
+    name: 'REMOVE OFFICE',
     component: <DeleteListItems />,
+    isNavItem: true,
   },
   {
     path: '/login',
@@ -60,47 +62,15 @@ const routes = [
 
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getAllItems());
   }, [dispatch]);
-  const username = 'Lameck';
+
   return (
     <Router>
-      <nav>
-        <ul className="nav-links">
-          <NavLink
-            style={({ isActive }) => ({
-              display: 'block',
-              margin: '1rem 0',
-              color: isActive ? 'red' : '',
-            })}
-            to="/"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            style={({ isActive }) => ({
-              display: 'block',
-              margin: '1rem 0',
-              color: isActive ? 'red' : '',
-            })}
-            to="/Carr"
-          >
-            Carr
-          </NavLink>
-          <NavLink
-            style={({ isActive }) => ({
-              display: 'block',
-              margin: '1rem 0',
-              color: isActive ? 'red' : '',
-            })}
-            to={`/${username}/reservations`}
-            key={username}
-          >
-            Reservations
-          </NavLink>
-        </ul>
-      </nav>
+      <NavMobile routes={routes} />
+      <Nav routes={routes} />
       <Routes>
         {routes.map(({ path, component }) => (
           <Route path={path} key={path} element={component} />

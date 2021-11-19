@@ -27,6 +27,8 @@
 }
 
 .details-section {
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: #fff;
   min-height: 100vh;
@@ -121,7 +123,6 @@ img {
   }
 
   .details-image-container {
-    width: 65%;
-    height: 60vh;
+    width: 60%;
   }
 }
