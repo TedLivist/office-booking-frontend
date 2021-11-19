@@ -41,9 +41,10 @@ export const signUp = async (username) => {
 };
 
 export const logout = () => {
-  if (localStorage.removeItem('user')) {
+  localStorage.removeItem('user');
+  if (localStorage.getItem('user') == null) {
     return true;
-  };
+  }
   return false;
 };
 
