@@ -10,7 +10,7 @@ function Carr() {
   const slides = [];
   let j = 0;
   let i = 0;
-  while (i < numberSlides -1 ) {
+  while (i < numberSlides - 1) {
     slides[i] = <Carousel.Item key={i}><div className="car-content">{items.slice(j, j + 3).map((item) => (<div className="car-item" key={item.id}><Item item={item} /></div>))}</div></Carousel.Item>;
     j += 3;
     i += 1;
