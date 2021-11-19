@@ -16,6 +16,7 @@ import Details from './components/details/Details';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
 import Carr from './components/Carr';
+import Logout from './components/Logout';
 
 const routes = [
   {
@@ -63,6 +64,11 @@ const routes = [
     name: 'Signup',
     component: <Signup />,
   },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: <Logout />,
+  },
 ];
 
 const App = () => {
@@ -106,6 +112,17 @@ const App = () => {
             key={username}
           >
             Reservations
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => ({
+              display: 'block',
+              margin: '1rem 0',
+              color: isActive ? 'red' : '',
+            })}
+            to="/logout"
+            key={username}
+          >
+            Logout
           </NavLink>
         </ul>
       </nav>
