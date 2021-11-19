@@ -8,7 +8,7 @@ const Details = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const item = useSelector((state) => state.items.item);
-  const username = useSelector((state) => state.users.username.username);
+  const username = useSelector((state) => state.users.username);
 
   useEffect(() => {
     dispatch(getItemById(id));

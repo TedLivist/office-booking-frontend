@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { login } from '../redux/users/usersAPI';
+import { useDispatch } from 'react-redux';
+import { logUser } from '../redux/users/users';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [fieldsInput, setFieldInput] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
-
   const handleChange = (e) => {
     setFieldInput({ ...fieldsInput, [e.target.name]: e.target.value.toLowerCase() });
   };
@@ -15,7 +16,7 @@ const Login = () => {
 
     if (fieldsInput.username.trim() && fieldsInput.password.trim()) {
       // const {username, password} = fieldsInput
-      login(fieldsInput.username);
+      dispatch(logUser(fieldsInput.username));
       setFieldInput({ username: '', password: '' });
     } else {
       setError('Empty fields are not allowed');

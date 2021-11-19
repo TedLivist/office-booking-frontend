@@ -32,9 +32,7 @@ export const deleteAndGetItems = async (itemId) => {
   const requestOptions = {
     method: 'DELETE',
     redirect: 'follow',
-    headers: {
-      'Content-Type': authHeader(),
-    },
+    headers: authHeader(),
   };
   const response = await fetch(
     `http://localhost:3000/api/v1/items/${itemId}`,
