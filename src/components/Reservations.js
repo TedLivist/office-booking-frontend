@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import { useParams } from 'react-router-dom';
 import { getReservations } from '../redux/reservations/reservations';
+import '../css/reservations.css';
 
 function Reservations() {
   const dispatch = useDispatch();
@@ -13,30 +14,8 @@ function Reservations() {
     dispatch(getReservations(username));
   }, [dispatch]);
 
-  // const reservations = [
-  //     {
-  //       name: 'Acacia F5r8',
-  //       sdate: '11/13/21',
-  //       edate: '11/13/21',
-  //       city: 'Nairobi'
-  //     },
-  //     {
-  //       name: 'Beacon F5r8',
-  //       sdate: '11/13/21',
-  //       edate: '11/13/21',
-  //       city: 'Mombasa'
-  //     },
-  //     {
-  //       name: 'Comine F5r8',
-  //       sdate: '11/13/21',
-  //       edate: '11/13/21',
-  //       city: 'Nairobi'
-  //     }
-
-  //   ]
-
   return (
-    <div className="reservation">
+    <div className="reservation w-100 container mt-5 pt-5 mt-lg-2">
       <h1 className="res-header">My Reservations</h1>
 
       <Table striped bordered hover>
@@ -50,18 +29,19 @@ function Reservations() {
           </tr>
         </thead>
         <tbody>
-          {reservations && reservations.map((reservation) => (
-            <tr key={reservation.id}>
-              <td>{reservation.id}</td>
-              <td>
-                {' '}
-                {reservation.item.name}
-              </td>
-              <td>{reservation.startDate}</td>
-              <td>{reservation.endDate}</td>
-              <td>{reservation.item.location}</td>
-            </tr>
-          ))}
+          {reservations
+            && reservations.map((reservation) => (
+              <tr key={reservation.id}>
+                <td>{reservation.id}</td>
+                <td>
+                  {' '}
+                  {reservation.item.name}
+                </td>
+                <td>{reservation.startDate}</td>
+                <td>{reservation.endDate}</td>
+                <td>{reservation.item.location}</td>
+              </tr>
+            ))}
         </tbody>
       </Table>
     </div>

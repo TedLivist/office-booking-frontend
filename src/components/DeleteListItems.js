@@ -13,7 +13,7 @@ const DeleteListItems = () => {
   const state = useSelector((state) => state.items.items);
 
   return (
-    <div>
+    <div className="w-100 container mt-5 pt-5 mt-lg-2">
       <h1 className="text-center mb-2">List of Items</h1>
       <table className="table table-striped mt-2">
         <thead>
@@ -26,16 +26,17 @@ const DeleteListItems = () => {
           </tr>
         </thead>
         <tbody>
-          {state && state.map((item) => (
-            <tr key={item.id}>
-              <DeleteListItem
-                id={item.id}
-                name={item.name}
-                description={item.description}
-                location={item.location}
-              />
-            </tr>
-          ))}
+          {state
+            && state.map((item) => (
+              <tr key={item.id}>
+                <DeleteListItem
+                  id={item.id}
+                  name={item.name}
+                  description={item.description}
+                  location={item.location}
+                />
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
