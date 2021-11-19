@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAllItems } from './redux/items/items';
+import { getUsername } from './redux/users/users';
 import Reserve from './components/Rerserve';
 import DeleteListItems from './components/DeleteListItems';
 import Login from './components/Login';
@@ -62,6 +63,7 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllItems());
+    dispatch(getUsername());
   }, [dispatch]);
   const username = 'Lameck';
   return (

@@ -5,7 +5,7 @@ import { TiSocialTwitterCircular, TiSocialInstagramCircular, TiSocialFacebookCir
 import '../css/item.css';
 
 const Item = ({ item }) => {
-  const page = `/details/${item.id}`;
+  const page = `/items/${item.id}`;
   return (
     <a className="w-50 text-decoration-none link-dark text-center text-dark" href={page}>
       <Card className="item-card border-0">

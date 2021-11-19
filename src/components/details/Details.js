@@ -8,6 +8,7 @@ const Details = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const item = useSelector((state) => state.items.item);
+  const username = useSelector((state) => state.users.username.username);
 
   useEffect(() => {
     dispatch(getItemById(id));
@@ -39,7 +40,7 @@ const Details = () => {
                 DISCOVER MORE OFFICES
               </Link>
               <br />
-              <Link to={`/:username/reservation/item/${id}`} id="reserve">
+              <Link to={`/${username}/reservation/item/${id}`} id="reserve">
                 <button className="reserve-btn" type="button">
                   Reserve
                 </button>
