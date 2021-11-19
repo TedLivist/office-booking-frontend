@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllItems } from './redux/items/items';
 import { getUsername } from './redux/users/users';
 import Reserve from './components/Rerserve';
@@ -62,11 +62,6 @@ const routes = [
     component: <Login />,
   },
   {
-    path: '/sign-up',
-    name: 'Signup',
-    component: <Signup />,
-  },
-  {
     path: '/logout',
     name: 'Logout',
     component: <Logout />,
@@ -75,6 +70,8 @@ const routes = [
 
 const App = () => {
   const dispatch = useDispatch();
+
+  const username = useSelector((state) => state.users.username.username);
 
   useEffect(() => {
     dispatch(getAllItems());
@@ -85,11 +82,18 @@ const App = () => {
     <Router>
       <NavMobile routes={routes} />
       <Nav routes={routes} />
-      <Routes>
-        {routes.map(({ path, component }) => (
-          <Route path={path} key={path} element={component} />
-        ))}
-      </Routes>
+      {username ? (
+        <Routes>
+          {routes.map(({ path, component }) => (
+            <Route path={path} key={path} element={component} />
+          ))}
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/sign-up" element={<Signup />} />
+        </Routes>
+      )}
     </Router>
   );
 };

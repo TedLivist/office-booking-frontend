@@ -10,28 +10,42 @@ import {
 } from 'react-icons/ti';
 import './Nav.css';
 
-const Nav = ({ routes }) => (
+const Nav = ({ routes, username }) => (
   <nav>
     <div className="brand-logo">
       <span>Office Space</span>
     </div>
+
     <ul className="nav-links">
-      {routes.map(({ name, path, isNavItem }) => (
-        <li key={path} className="nav-link">
-          {isNavItem && (
-            <NavLink
-              style={({ isActive }) => ({
-                display: 'block',
-                margin: '1rem 0',
-                color: isActive ? '#fff' : '',
-              })}
-              to={path}
-            >
-              {name}
-            </NavLink>
-          )}
-        </li>
-      ))}
+      {username ? (
+        routes.map(({ name, path, isNavItem }) => (
+          <li key={path} className="nav-link">
+            {isNavItem && (
+              <NavLink
+                style={({ isActive }) => ({
+                  display: 'block',
+                  margin: '1rem 0',
+                  color: isActive ? '#fff' : '',
+                })}
+                to={path}
+              >
+                {name}
+              </NavLink>
+            )}
+          </li>
+        ))
+      ) : (
+        <NavLink
+          style={({ isActive }) => ({
+            display: 'block',
+            margin: '1rem 0',
+            color: isActive ? '#fff' : '',
+          })}
+          to="/sign-up"
+        >
+          Signup
+        </NavLink>
+      )}
     </ul>
     <div>
       <div className="social">
@@ -58,6 +72,7 @@ Nav.propTypes = {
       name: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  username: PropTypes.string.isRequired,
 };
 
 export default Nav;
