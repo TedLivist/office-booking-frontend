@@ -41,3 +41,22 @@ export const deleteAndGetItems = async (itemId) => {
   const data = await response.json();
   return data;
 };
+
+export const postItem = async (item) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const requestOptions = {
+    method: 'POST',
+    redirect: 'follow',
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+      accepts: 'application/json',
+    },
+    body: item,
+  };
+  const response = await fetch(
+    'http://localhost:3000/api/v1/items',
+    requestOptions,
+  );
+  const data = await response.json();
+  return data;
+};

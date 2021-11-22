@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { postItem } from '../redux/items/itemsAPI';
 
 const ItemForm = () => {
   const [itemsInput, setItemsInput] = useState({
     name: '',
     location: '',
-    image: '',
+    image: null,
     description: '',
   });
   const [error, setError] = useState('');
@@ -15,23 +16,28 @@ const ItemForm = () => {
   };
 
   const handleImage = (e) => {
-    const file = URL.createObjectURL(e.target.files[0]);
+    const file = e.target.files[0];
     setItemsInput({ ...itemsInput, image: file });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const formData = new FormData();
+    formData.append('name', itemsInput.name);
+    formData.append('location', itemsInput.location);
+    formData.append('image', itemsInput.image);
+    formData.append('description', itemsInput.description);
     if (
       itemsInput.name.trim()
       && itemsInput.location.trim()
       && itemsInput.description.trim()
     ) {
-      // const { name, location, image, description } = itemsInput
+      postItem(formData);
       setItemsInput({
         name: '',
         location: '',
-        image: '',
+        image: null,
         description: '',
       });
       setError('');
