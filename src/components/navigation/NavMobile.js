@@ -55,7 +55,7 @@ const NavMobile = ({ routes }) => {
             left: 0;
             right: 0;
             will-change: transform;
-            z-index: 997;
+            z-index: 2;
             transition: all 0.7s ease;
           }
 
@@ -69,6 +69,7 @@ const NavMobile = ({ routes }) => {
             top: 0;
             left: 0;
             padding: 0 1rem;
+            z-index: 2;
           }
           @media screen and (min-width: 992px) {
             header,
