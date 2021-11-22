@@ -55,14 +55,14 @@ const routes = [
     component: <DeleteListItems />,
     isNavItem: true,
   },
-  {
-    path: '/login',
-    name: 'Login',
-    component: <Login />,
-  },
+  // {
+  //   path: '/login',
+  //   name: 'Login',
+  //   component: <Login />,
+  // },
   {
     path: '/logout',
-    name: 'Logout',
+    name: 'LOGOUT',
     component: <Logout />,
     isNavItem: true,
   },
@@ -78,14 +78,17 @@ const App = () => {
 
   return (
     <Router>
-      <NavMobile routes={routes} />
-      <Nav routes={routes} />
+
       {username ? (
-        <Routes>
-          {routes.map(({ path, component }) => (
-            <Route path={path} key={path} element={component} />
-          ))}
-        </Routes>
+        <>
+          <NavMobile routes={routes} />
+          <Nav routes={routes} />
+          <Routes>
+            {routes.map(({ path, component }) => (
+              <Route path={path} key={path} element={component} />
+            ))}
+          </Routes>
+        </>
       ) : (
         <Routes>
           <Route path="/" element={<Login />} />

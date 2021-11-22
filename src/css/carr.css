@@ -37,7 +37,7 @@
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: rgb(41, 128, 41);
+  background-color: rgba(150, 191, 2, 0.596);
 
   /* border-radius: 100% 0% 0% 100%; */
   width: 3.5rem !important;

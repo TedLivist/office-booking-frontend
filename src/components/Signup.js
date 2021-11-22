@@ -1,8 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { signUp } from '../redux/users/usersAPI';
+import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
+import { signUpUser } from '../redux/users/users';
 
 const Signup = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [fieldsInput, setFieldInput] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
 
@@ -15,29 +20,39 @@ const Signup = () => {
 
     if (fieldsInput.username.trim() && fieldsInput.password.trim()) {
       // const {username, password} = fieldsInput
-      signUp(fieldsInput.username);
+
+      dispatch(signUpUser(fieldsInput.username));
       setFieldInput({ username: '', password: '' });
+      navigate('/');
     } else {
       setError('Empty fields are not allowed');
     }
   };
 
   return (
-    <div className="row justify-content-center">
-      <h1 className="mt-3 text-center">Sign Up Page</h1>
-      <div className="col-6">
-        <form onSubmit={handleSubmit} className="mt-2">
-          <div className="mb-3">
-            <label htmlFor="username" name="username" className="form-label">Username</label>
-            <input type="text" name="username" onChange={handleChange} value={fieldsInput.username} placeholder="Enter username" required className="form-control rounded-pill" id="username" aria-describedby="username" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">Password</label>
-            <input id="password" type="password" name="password" onChange={handleChange} value={fieldsInput.password} placeholder="Enter password" required className="form-control rounded-pill" />
-            {error.length > 2 ? <div id="errorHelp" className="form-text text-danger">{error}</div> : '' }
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+    <div className="auth-form">
+      <div className="row justify-content-center">
+        <h1 className="mt-3 text-center">Sign Up Page</h1>
+        <div className="col-9">
+          <form onSubmit={handleSubmit} className="mt-2">
+            <div className="mb-3">
+              <label htmlFor="username" name="username" className="form-label">Username</label>
+              <input type="text" name="username" onChange={handleChange} value={fieldsInput.username} placeholder="Enter username" required className="form-control rounded-pill" id="username" aria-describedby="username" />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input id="password" type="password" name="password" onChange={handleChange} value={fieldsInput.password} placeholder="Enter password" required className="form-control rounded-pill" />
+              {error.length > 2 ? <div id="errorHelp" className="form-text text-danger">{error}</div> : '' }
+            </div>
+            <button type="submit" className="btn btn-primary">Sign up</button>
+            <br />
+            <br />
+            <p>
+              Already have an account? &nbsp;
+              <Link to="/">Log in</Link>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

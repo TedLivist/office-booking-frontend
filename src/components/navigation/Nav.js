@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import {
   TiSocialTwitter,
@@ -11,63 +10,47 @@ import {
 } from 'react-icons/ti';
 import './Nav.css';
 
-const Nav = ({ routes }) => {
-  const username = useSelector((state) => state.users.username);
-  return (
-    <nav>
-      <div className="brand-logo">
-        <span>Office Space</span>
-      </div>
+const Nav = ({ routes }) => (
+  <nav>
+    <div className="brand-logo">
+      <span>Office Space</span>
+    </div>
 
-      <ul className="nav-links">
-        {username ? (
-          routes.map(({ name, path, isNavItem }) => (
-            <li key={path} className="nav-link">
-              {isNavItem && (
-              <NavLink
-                style={({ isActive }) => ({
-                  display: 'block',
-                  margin: '1rem 0',
-                  color: isActive ? '#fff' : '',
-                })}
-                to={path}
-              >
-                {name}
-              </NavLink>
-              )}
-            </li>
-          ))
-        ) : (
-          <NavLink
-            style={({ isActive }) => ({
-              display: 'block',
-              margin: '1rem 0',
-              color: isActive ? '#fff' : '',
-            })}
-            to="/sign-up"
-          >
-            Signup
-          </NavLink>
-        )}
-      </ul>
-      <div>
-        <div className="social">
-          <TiSocialTwitter />
-          <TiSocialFacebook />
-          <TiSocialGooglePlus />
-          <TiSocialVimeo />
-          <TiSocialPinterest />
-        </div>
-        <small>
-          &copy;
-          {new Date().getFullYear()}
-          {' '}
-          Office Space, Inc.
-        </small>
+    <ul className="nav-links">
+      {routes.map(({ name, path, isNavItem }) => (
+        <li key={path} className="nav-link">
+          {isNavItem && (
+            <NavLink
+              style={({ isActive }) => ({
+                display: 'block',
+                margin: '1rem 0',
+                color: isActive ? '#fff' : '',
+              })}
+              to={path}
+            >
+              {name}
+            </NavLink>
+          )}
+        </li>
+      ))}
+    </ul>
+    <div>
+      <div className="social">
+        <TiSocialTwitter />
+        <TiSocialFacebook />
+        <TiSocialGooglePlus />
+        <TiSocialVimeo />
+        <TiSocialPinterest />
       </div>
-    </nav>
-  );
-};
+      <small>
+        &copy;
+        {new Date().getFullYear()}
+        {' '}
+        Office Space, Inc.
+      </small>
+    </div>
+  </nav>
+);
 
 Nav.propTypes = {
   routes: PropTypes.arrayOf(
