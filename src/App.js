@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getAllItems } from './redux/items/items';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsername } from './redux/users/users';
 import Reserve from './components/Rerserve';
 import DeleteListItems from './components/DeleteListItems';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import Details from './components/details/Details';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
+import Logout from './components/Logout';
 import Nav from './components/navigation/Nav';
 import ItemForm from './components/ItemForm';
 import NavMobile from './components/navigation/NavMobile';
@@ -20,7 +22,7 @@ const routes = [
     isNavItem: true,
   },
   {
-    path: '/:username/reservations',
+    path: '/reservations',
     name: 'MY RESERVATIONS',
     component: <Reservations />,
     isNavItem: true,
@@ -31,7 +33,7 @@ const routes = [
     component: <Details />,
   },
   {
-    path: '/:username/reservation',
+    path: '/reservation',
     name: 'RESERVE OFFICE',
     component: <Reserve />,
     isNavItem: true,
@@ -53,29 +55,46 @@ const routes = [
     component: <DeleteListItems />,
     isNavItem: true,
   },
+  // {
+  //   path: '/login',
+  //   name: 'Login',
+  //   component: <Login />,
+  // },
   {
-    path: '/login',
-    name: 'Login',
-    component: <Login />,
+    path: '/logout',
+    name: 'LOGOUT',
+    component: <Logout />,
+    isNavItem: true,
   },
 ];
-
 const App = () => {
   const dispatch = useDispatch();
 
+  const username = useSelector((state) => state.users.username);
+
   useEffect(() => {
-    dispatch(getAllItems());
+    dispatch(getUsername());
   }, [dispatch]);
 
   return (
     <Router>
-      <NavMobile routes={routes} />
-      <Nav routes={routes} />
-      <Routes>
-        {routes.map(({ path, component }) => (
-          <Route path={path} key={path} element={component} />
-        ))}
-      </Routes>
+
+      {username ? (
+        <>
+          <NavMobile routes={routes} />
+          <Nav routes={routes} />
+          <Routes>
+            {routes.map(({ path, component }) => (
+              <Route path={path} key={path} element={component} />
+            ))}
+          </Routes>
+        </>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/sign-up" element={<Signup />} />
+        </Routes>
+      )}
     </Router>
   );
 };

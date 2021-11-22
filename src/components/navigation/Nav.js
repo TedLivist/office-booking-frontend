@@ -15,6 +15,7 @@ const Nav = ({ routes }) => (
     <div className="brand-logo">
       <span>Office Space</span>
     </div>
+
     <ul className="nav-links">
       {routes.map(({ name, path, isNavItem }) => (
         <li key={path} className="nav-link">

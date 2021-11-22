@@ -1,7 +1,10 @@
+import { authHeader } from '../users/usersAPI';
+
 export const fetchAllItems = async () => {
   const requestOptions = {
     method: 'GET',
     redirect: 'follow',
+    headers: authHeader(),
   };
   const response = await fetch(
     'http://localhost:3000/api/v1/items',
@@ -15,6 +18,7 @@ export const fetchItemById = async (id) => {
   const requestOptions = {
     method: 'GET',
     redirect: 'follow',
+    headers: authHeader(),
   };
   const response = await fetch(
     `http://localhost:3000/api/v1/items/${id}`,
@@ -28,6 +32,7 @@ export const deleteAndGetItems = async (itemId) => {
   const requestOptions = {
     method: 'DELETE',
     redirect: 'follow',
+    headers: authHeader(),
   };
   const response = await fetch(
     `http://localhost:3000/api/v1/items/${itemId}`,

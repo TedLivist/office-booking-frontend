@@ -1,13 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { logUser } from '../redux/users/users';
+import { useNavigate, Link } from 'react-router-dom';
+import { signUpUser } from '../redux/users/users';
 
-const Login = () => {
+const Signup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [fieldsInput, setFieldInput] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
+
   const handleChange = (e) => {
     setFieldInput({ ...fieldsInput, [e.target.name]: e.target.value.toLowerCase() });
   };
@@ -17,8 +20,10 @@ const Login = () => {
 
     if (fieldsInput.username.trim() && fieldsInput.password.trim()) {
       // const {username, password} = fieldsInput
-      dispatch(logUser(fieldsInput.username));
+
+      dispatch(signUpUser(fieldsInput.username));
       setFieldInput({ username: '', password: '' });
+      navigate('/');
     } else {
       setError('Empty fields are not allowed');
     }
@@ -27,7 +32,7 @@ const Login = () => {
   return (
     <div className="auth-form">
       <div className="row justify-content-center">
-        <h1 className="mt-3 text-center">Login Page</h1>
+        <h1 className="mt-3 text-center">Sign Up Page</h1>
         <div className="col-9">
           <form onSubmit={handleSubmit} className="mt-2">
             <div className="mb-3">
@@ -39,12 +44,12 @@ const Login = () => {
               <input id="password" type="password" name="password" onChange={handleChange} value={fieldsInput.password} placeholder="Enter password" required className="form-control rounded-pill" />
               {error.length > 2 ? <div id="errorHelp" className="form-text text-danger">{error}</div> : '' }
             </div>
-            <button type="submit" className="btn btn-primary">Log in</button>
+            <button type="submit" className="btn btn-primary">Sign up</button>
             <br />
             <br />
             <p>
-              Not registered? &nbsp;
-              <Link to="/sign-up">Sign up</Link>
+              Already have an account? &nbsp;
+              <Link to="/">Log in</Link>
             </p>
           </form>
         </div>
@@ -53,4 +58,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

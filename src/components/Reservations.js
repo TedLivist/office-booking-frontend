@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
-import { useParams } from 'react-router-dom';
 import { getReservations } from '../redux/reservations/reservations';
 import '../css/reservations.css';
 
 function Reservations() {
   const dispatch = useDispatch();
-  const { username } = useParams();
+  const username = useSelector((state) => state.users.username);
   const reservations = useSelector((state) => state.reservations.reservations);
 
   useEffect(() => {

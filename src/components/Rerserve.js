@@ -7,7 +7,7 @@ import { VscSearch } from 'react-icons/vsc';
 import { useParams } from 'react-router-dom';
 import DateTimePicker from 'react-datetime-picker';
 import postReservation from '../redux/reservations/postReservation';
-import { getItemById } from '../redux/items/items';
+import { getItemById, getAllItems } from '../redux/items/items';
 import Thanks from './Thanks';
 import Error from './Error';
 import '../css/reserve.css';
@@ -20,13 +20,15 @@ const Reserve = ({ details }) => {
   const [validated, setValidated] = useState(false);
   const items = useSelector((state) => state.items.items);
   const item = useSelector((state) => state.items.item);
-  const { username, id } = useParams();
+  const username = useSelector((state) => state.users.username);
+  const { id } = useParams();
   let options = [];
   const [show, setShow] = useState(false);
   const [showE, setShowE] = useState(false);
   const handleClose = () => setShow(false);
   const handleCloseE = () => setShowE(false);
   useEffect(() => {
+    dispatch(getAllItems());
     dispatch(getItemById(id));
   }, [dispatch, id]);
 
@@ -44,7 +46,7 @@ const Reserve = ({ details }) => {
     setEnd(new Date());
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     const form = event.currentTarget;
     let data = {};
     if (form.checkValidity() === false) {
@@ -55,11 +57,16 @@ const Reserve = ({ details }) => {
       event.preventDefault();
       if (details) {
         setItem(item);
-        data = { item_id: item.id, start_date: start, end_date: end };
+        data = {
+          item_id: item.id, start_date: start, end_date: end,
+        };
       } else {
-        data = { item_id: itm.id, start_date: start, end_date: end };
+        data = {
+          item_id: itm.id, start_date: start, end_date: end,
+        };
       }
-      await postReservation(username, data);
+
+      postReservation(username, data);
       setShow(true);
     }
     setValidated(true);

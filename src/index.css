@@ -3,6 +3,14 @@
   flex-direction: column;
 }
 
+.auth-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  width: 95vw;
+}
+
 @media screen and (min-width: 768px) {
   #root {
     flex-direction: row;
