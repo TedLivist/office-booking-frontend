@@ -48,7 +48,7 @@ const ItemForm = () => {
 
   return (
     <div className="row justify-content-center w-100 pt-5 mt-5 pt-lg-3 mt-lg-3">
-      <h1 className="mt-3 text-center">Add Item</h1>
+      <h1 className="mt-3 text-center font">Add Office</h1>
       <div className="col-10">
         <form onSubmit={handleSubmit} className="mt-2 mx-0 w-100">
           <div className="mb-3">

@@ -14,7 +14,7 @@ const DeleteListItems = () => {
 
   return (
     <div className="w-100 container mt-5 pt-5 mt-lg-2">
-      <h1 className="text-center mb-2">List of Items</h1>
+      <h1 className="text-center mb-2 font">List of Offices</h1>
       <table className="table table-striped mt-2">
         <thead>
           <tr>

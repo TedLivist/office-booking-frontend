@@ -35,7 +35,7 @@ const Details = () => {
                 <span>{item.description}</span>
               </li>
             </ul>
-            <div className="links">
+            <div className="links font-rale">
               <Link to="/" id="more">
                 DISCOVER MORE OFFICES
               </Link>
