@@ -1,5 +1,7 @@
 # Office booking Frontend Final project
-> Office booking is a React appliation that allows users to authenticate, add delte offices and make reservations. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Office booking is a React appliation that allows users to authenticate, add delete offices and make reservations. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![image](https://user-images.githubusercontent.com/43698511/142994434-6ba31d48-58e8-4147-9f3a-cd30e555b61d.png)
 
 # Getting started 
  To get a local running copy of the project:
@@ -47,11 +49,17 @@ You will also see any lint errors in the console.
 
 - GitHub: [@TedLivist](https://github.com/TedLivist)
 - LinkedIn: [Teddy-Livingstone Ememandu](https://www.linkedin.com/in/tememandu/)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
 Feel free to check the [issues page](issues/).
+
+## Acknowledgments
+
+- Inspiration
+- Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign).
 
 ## Show your support
 
