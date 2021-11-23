@@ -1,7 +1,7 @@
 # Office booking Frontend Final project
 > Office booking is a React appliation that allows users to authenticate, add delete offices and make reservations. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![image](https://user-images.githubusercontent.com/43698511/142994434-6ba31d48-58e8-4147-9f3a-cd30e555b61d.png)
+![image](https://user-images.githubusercontent.com/43698511/143011955-5bf515bf-665d-46bc-b0d8-4e9fce129346.png)
 
 # Getting started 
  To get a local running copy of the project:
