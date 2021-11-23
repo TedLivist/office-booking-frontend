@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div className="w-100 container mt-5 pt-5 mt-lg-2">
-      <h1>OFFICES</h1>
+      <h1 className="font">Available Offices</h1>
       <Carr />
     </div>
   );

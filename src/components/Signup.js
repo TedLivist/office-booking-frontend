@@ -30,7 +30,7 @@ const Signup = () => {
   return (
     <div className="auth-form">
       <div className="row justify-content-center">
-        <h1 className="mt-3 text-center">Sign Up Page</h1>
+        <h1 className="mt-3 text-center font">Sign Up Page</h1>
         <div className="col-9">
           <form onSubmit={handleSubmit} className="mt-2">
             <div className="mb-3">

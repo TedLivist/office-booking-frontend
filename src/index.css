@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&family=Yrsa&display=swap');
+
 #root {
   display: flex;
   flex-direction: column;
@@ -9,6 +11,15 @@
   align-items: center;
   height: 95vh;
   width: 95vw;
+}
+
+.font {
+  font-family: 'Yrsa', serif;
+  margin-top: 2rem;
+}
+
+.font-rale {
+  font-family: 'Raleway', sans-serif;
 }
 
 @media screen and (min-width: 768px) {
