@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { authHeader } from '../users/usersAPI';
 
 const postReservation = async (username, data) => {

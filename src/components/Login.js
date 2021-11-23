@@ -16,7 +16,6 @@ const Login = () => {
     e.preventDefault();
 
     if (fieldsInput.username.trim() && fieldsInput.password.trim()) {
-      // const {username, password} = fieldsInput
       dispatch(logUser(fieldsInput.username));
       setFieldInput({ username: '', password: '' });
     } else {

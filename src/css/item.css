@@ -1,5 +1,4 @@
 .item-card {
-  /* width: 25%; */
   align-items: center;
   padding: 2rem 2rem;
 }
@@ -7,8 +6,6 @@
 .item-img {
   width: 15rem;
   height: 15rem;
-
-  /* border-radius: 100%; */
 }
 
 .item-name {

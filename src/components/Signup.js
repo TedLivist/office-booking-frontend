@@ -19,8 +19,6 @@ const Signup = () => {
     e.preventDefault();
 
     if (fieldsInput.username.trim() && fieldsInput.password.trim()) {
-      // const {username, password} = fieldsInput
-
       dispatch(signUpUser(fieldsInput.username));
       setFieldInput({ username: '', password: '' });
       navigate('/');
