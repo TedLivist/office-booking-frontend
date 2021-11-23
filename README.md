@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Office booking Frontend Final project
+> Office booking is a React appliation that allows users to authenticate, add delte offices and make reservations. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Getting started 
+ To get a local running copy of the project:
+ 
+ - Clone the repository using git clone
+ - In the terminal run npm install to install all the dependencies
+
 
 ## Available Scripts
 
@@ -6,39 +14,45 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.\
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+## Live Demo
+[Not deployed yet](x)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Authors
 
-### `npm run build`
+ 👤 **Safa Aballagh**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- GitHub: [@safafa](https://github.com/safafa)
+- Twitter: [@safa aballagh](https://twitter.com/Aballagh_S)
+- LinkedIn: [Aballagh Safa](https://www.linkedin.com/in/aballaghsafa/)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+ 👤 **Lameck Otieno**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- GitHub: [@Lameck1](https://github.com/Lameck1)
+- Twitter: [@lameck721](https://twitter.com/lameck721)
+- LinkedIn: [Lameck Otieno](https://www.linkedin.com/in/lameck-otieno/)
 
-### `npm run eject`
+ 👤 **Peter Mbuthia**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- GitHub: [@blakbox23](https://github.com/blakbox23)
+- Twitter: [@blakbox](https://twitter.com/blakbox23)
+- LinkedIn: [Peter Mbuthia](https://www.linkedin.com/in/peter-mbuthia/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+👤 **Teddy-Livingstone Ememandu**
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- GitHub: [@TedLivist](https://github.com/TedLivist)
+- LinkedIn: [Teddy-Livingstone Ememandu](https://www.linkedin.com/in/tememandu/)
+## 🤝 Contributing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Contributions, issues and feature requests are welcome!
 
-## Learn More
+Feel free to check the [issues page](issues/).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Show your support
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Give a ⭐️ if you like this project!
