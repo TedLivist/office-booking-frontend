@@ -26,7 +26,7 @@ const Login = () => {
   return (
     <div className="auth-form">
       <div className="row justify-content-center">
-        <h1 className="mt-3 text-center">Login Page</h1>
+        <h1 className="mt-3 text-center font">Login Page</h1>
         <div className="col-9">
           <form onSubmit={handleSubmit} className="mt-2">
             <div className="mb-3">

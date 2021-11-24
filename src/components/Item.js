@@ -18,7 +18,7 @@ const Item = ({ item }) => {
       <Card className="item-card border-0">
         <img src={item.image} className="card-img-top item-img" alt="..." />
         <div className="d-flex justify-content-between align-items-center px-3 pt-2">
-          <Card.Title className="item-name">{item.name}</Card.Title>
+          <Card.Title className="item-name font-rale">{item.name}</Card.Title>
         </div>
         <Card.Body>
           <Card.Text className="item-description">{item.description}</Card.Text>

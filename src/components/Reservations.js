@@ -15,7 +15,7 @@ function Reservations() {
 
   return (
     <div className="reservation w-100 container mt-5 pt-5 mt-lg-2">
-      <h1 className="res-header">My Reservations</h1>
+      <h1 className="res-header font">My Reservations</h1>
 
       <Table striped bordered hover>
         <thead>

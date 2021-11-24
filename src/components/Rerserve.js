@@ -93,7 +93,7 @@ const Reserve = ({ details }) => {
         <VscSearch />
       </span>
       <div className="div-reserve d-flex flex-column align-items-center">
-        <h1 className="reserve-title">Book this office</h1>
+        <h1 className="reserve-title font">Book This Office</h1>
         <p className="reserve-description">{item.description}</p>
         <Form
           noValidate

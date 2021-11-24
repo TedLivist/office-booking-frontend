@@ -9,7 +9,7 @@ const Thanks = ({ show, handleClose }) => (
     <Modal.Body>
       <Card className="item-card border-0 my-auto w-100">
         <div className="d-flex justify-content-between">
-          <Card.Title className="item-name">Thank you</Card.Title>
+          <Card.Title className="item-name font">Thank you</Card.Title>
         </div>
         <Card.Body>
           <Card.Text className="item-description text-dark">
