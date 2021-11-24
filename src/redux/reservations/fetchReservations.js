@@ -11,8 +11,7 @@ const fetchReservations = async (username) => {
     requestOptions,
   );
   const result = await response.json();
-  const { reservations } = result;
-  return reservations;
+  return result;
 };
 
 export default fetchReservations;
