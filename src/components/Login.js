@@ -6,7 +6,7 @@ import { logUser } from '../redux/users/users';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const [fieldsInput, setFieldInput] = useState({ username: '', password: '' });
+  const [fieldsInput, setFieldInput] = useState({ username: '' });
   const [error, setError] = useState('');
   const handleChange = (e) => {
     setFieldInput({ ...fieldsInput, [e.target.name]: e.target.value.toLowerCase() });
@@ -15,9 +15,9 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (fieldsInput.username.trim() && fieldsInput.password.trim()) {
+    if (fieldsInput.username.trim()) {
       dispatch(logUser(fieldsInput.username));
-      setFieldInput({ username: '', password: '' });
+      setFieldInput({ username: '' });
     } else {
       setError('Empty fields are not allowed');
     }
@@ -32,10 +32,6 @@ const Login = () => {
             <div className="mb-3">
               <label htmlFor="username" name="username" className="form-label">Username</label>
               <input type="text" name="username" onChange={handleChange} value={fieldsInput.username} placeholder="Enter username" required className="form-control rounded-pill" id="username" aria-describedby="username" />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password</label>
-              <input id="password" type="password" name="password" onChange={handleChange} value={fieldsInput.password} placeholder="Enter password" required className="form-control rounded-pill" />
               {error.length > 2 ? <div id="errorHelp" className="form-text text-danger">{error}</div> : '' }
             </div>
             <button type="submit" className="btn btn-primary">Log in</button>
