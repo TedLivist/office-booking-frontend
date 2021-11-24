@@ -8,7 +8,7 @@ const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [fieldsInput, setFieldInput] = useState({ username: '', password: '' });
+  const [fieldsInput, setFieldInput] = useState({ username: '' });
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -18,9 +18,9 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (fieldsInput.username.trim() && fieldsInput.password.trim()) {
+    if (fieldsInput.username.trim()) {
       dispatch(signUpUser(fieldsInput.username));
-      setFieldInput({ username: '', password: '' });
+      setFieldInput({ username: '' });
       navigate('/');
     } else {
       setError('Empty fields are not allowed');
@@ -36,10 +36,6 @@ const Signup = () => {
             <div className="mb-3">
               <label htmlFor="username" name="username" className="form-label">Username</label>
               <input type="text" name="username" onChange={handleChange} value={fieldsInput.username} placeholder="Enter username" required className="form-control rounded-pill" id="username" aria-describedby="username" />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password</label>
-              <input id="password" type="password" name="password" onChange={handleChange} value={fieldsInput.password} placeholder="Enter password" required className="form-control rounded-pill" />
               {error.length > 2 ? <div id="errorHelp" className="form-text text-danger">{error}</div> : '' }
             </div>
             <button type="submit" className="btn btn-primary">Sign up</button>
