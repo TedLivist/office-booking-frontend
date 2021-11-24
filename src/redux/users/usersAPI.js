@@ -1,5 +1,5 @@
 export const login = async (username) => {
-  const request = await fetch('http://localhost:3000/api/v1/login', {
+  const request = await fetch('http://localhost:3000/api/v1/sessions', {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
