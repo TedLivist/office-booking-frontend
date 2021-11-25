@@ -1,0 +1,59 @@
+.Car {
+  color: #000;
+  width: 100%;
+  margin: auto;
+  padding: 2rem;
+}
+
+.car-content {
+  display: flex;
+  justify-content: space-evenly;
+  width: 84%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.car-item {
+  width: 30%;
+}
+
+.car-item card {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10% !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(150, 191, 2, 0.596);
+  width: 3.5rem !important;
+  height: 2rem !important;
+}
+
+.Car-min {
+  display: none;
+}
+
+@media only screen and (max-width: 780px) {
+  .Car {
+    display: none;
+  }
+
+  .Car-min {
+    display: flex;
+  }
+
+  .car-content {
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .car-item {
+    width: 90%;
+    margin: auto;
+  }
+}

@@ -1,0 +1,14 @@
+.reservation {
+  width: 95%;
+  margin: 10vh auto;
+}
+
+.res-header {
+  text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+  .reservation {
+    width: 80%;
+  }
+}

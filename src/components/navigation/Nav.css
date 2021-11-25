@@ -1,0 +1,74 @@
+.brand-logo > span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #8a2c2c;
+}
+
+nav {
+  display: none;
+  background-color: #f9f9f9;
+  border-right: 1.5px solid #f0dfdf;
+}
+
+nav,
+.nav-links,
+li.nav-link {
+  padding: 0;
+  margin: 0;
+}
+
+li.nav-link > a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px;
+}
+
+li.nav-link > a:hover {
+  color: #96bf0298;
+}
+
+li.nav-link > a.active {
+  background-color: #96bf0298;
+}
+
+li.nav-link > a.active::after {
+  content: '\2771';
+  padding: 0 5px;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.social,
+small {
+  padding: 10px;
+}
+
+small {
+  font-weight: 600;
+}
+
+.social > svg {
+  width: 25px;
+  height: 25px;
+  fill: #8a2c2c;
+}
+
+@media (min-width: 992px) {
+  nav,
+  .social {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav {
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    width: 20%;
+  }
+
+  #humburger {
+    display: none;
+  }
+}
