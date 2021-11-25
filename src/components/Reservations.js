@@ -11,7 +11,7 @@ function Reservations() {
 
   useEffect(() => {
     dispatch(getReservations(username));
-  }, [dispatch]);
+  }, [username, dispatch]);
 
   return (
     <div className="reservation w-100 container mt-5 pt-5 mt-lg-2">
