@@ -12,7 +12,7 @@ const Details = () => {
 
   useEffect(() => {
     dispatch(getItemById(id));
-  }, []);
+  }, [id, dispatch]);
 
   return (
     <section className="details-section">
