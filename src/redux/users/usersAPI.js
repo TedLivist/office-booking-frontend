@@ -1,5 +1,5 @@
 export const login = async (username) => {
-  const request = await fetch('http://localhost:3000/api/v1/sessions', {
+  const request = await fetch('https://office-booking.herokuapp.com/api/v1/sessions', {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
@@ -20,7 +20,7 @@ export const login = async (username) => {
 };
 
 export const signUp = async (username) => {
-  const request = await fetch('http://localhost:3000/api/v1/users', {
+  const request = await fetch('https://office-booking.herokuapp.com/api/v1/users', {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',

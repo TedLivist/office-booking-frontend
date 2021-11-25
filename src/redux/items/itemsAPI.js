@@ -7,7 +7,7 @@ export const fetchAllItems = async () => {
     headers: authHeader(),
   };
   const response = await fetch(
-    'http://localhost:3000/api/v1/items',
+    'https://office-booking.herokuapp.com/api/v1/items',
     requestOptions,
   );
   const items = await response.json();
@@ -21,7 +21,7 @@ export const fetchItemById = async (id) => {
     headers: authHeader(),
   };
   const response = await fetch(
-    `http://localhost:3000/api/v1/items/${id}`,
+    `https://office-booking.herokuapp.com/api/v1/items/${id}`,
     requestOptions,
   );
   const item = await response.json();
@@ -35,7 +35,7 @@ export const deleteAndGetItems = async (itemId) => {
     headers: authHeader(),
   };
   const response = await fetch(
-    `http://localhost:3000/api/v1/items/${itemId}`,
+    `https://office-booking.herokuapp.com/api/v1/items/${itemId}`,
     requestOptions,
   );
   const data = await response.json();
@@ -54,7 +54,7 @@ export const postItem = async (item) => {
     body: item,
   };
   const response = await fetch(
-    'http://localhost:3000/api/v1/items',
+    'https://office-booking.herokuapp.com/api/v1/items',
     requestOptions,
   );
   const data = await response.json();
