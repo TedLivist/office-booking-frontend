@@ -55,11 +55,6 @@ const routes = [
     component: <DeleteListItems />,
     isNavItem: true,
   },
-  // {
-  //   path: '/login',
-  //   name: 'Login',
-  //   component: <Login />,
-  // },
   {
     path: '/logout',
     name: 'LOGOUT',
